@@ -1,0 +1,618 @@
+
+Version
+Classification
+
+
+
+
+
+
+
+3.7.4.  Version
+
+   Property Name:  VERSION
+
+   Purpose:  This property specifies the identifier corresponding to the
+      highest version number or the minimum and maximum range of the
+      iCalendar specification that is required in order to interpret the
+      iCalendar object.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA and non-standard property parameters can
+      be specified on this property.
+
+   Conformance:  This property MUST be specified once in an iCalendar
+      object.
+
+   Description:  A value of "2.0" corresponds to this memo.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       version    = "VERSION" verparam ":" vervalue CRLF
+
+       verparam   = *(";" other-param)
+
+       vervalue   = "2.0"         ;This memo
+                  / maxver
+                  / (minver ";" maxver)
+
+       minver     = <A IANA-registered iCalendar version identifier>
+       ;Minimum iCalendar version needed to parse the iCalendar object.
+
+       maxver     = <A IANA-registered iCalendar version identifier>
+       ;Maximum iCalendar version needed to parse the iCalendar object.
+
+
+3.8.1.3.  Classification
+
+   Property Name:  CLASS
+
+   Purpose:  This property defines the access classification for a
+      calendar component.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA and non-standard property parameters can
+      be specified on this property.
+
+   Conformance:  The property can be specified once in a "VEVENT",
+      "VTODO", or "VJOURNAL" calendar components.
+
+   Description:  An access classification is only one component of the
+      general security system within a calendar application.  It
+      provides a method of capturing the scope of the access the
+      calendar owner intends for information within an individual
+      calendar entry.  The access classification of an individual
+      iCalendar component is useful when measured along with the other
+      security components of a calendar system (e.g., calendar user
+      authentication, authorization, access rights, access role, etc.).
+      Hence, the semantics of the individual access classifications
+      cannot be completely defined by this memo alone.  Additionally,
+      due to the "blind" nature of most exchange processes using this
+      memo, these access classifications cannot serve as an enforcement
+      statement for a system receiving an iCalendar object.  Rather,
+      they provide a method for capturing the intention of the calendar
+      owner for the access to the calendar component.  If not specified
+      in a component that allows this property, the default value is
+      PUBLIC.  Applications MUST treat x-name and iana-token values they
+      don't recognize the same way as they would the PRIVATE value.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       class      = "CLASS" classparam ":" classvalue CRLF
+
+       classparam = *(";" other-param)
+
+       classvalue = "PUBLIC" / "PRIVATE" / "CONFIDENTIAL" / iana-token
+                  / x-name
+       ;Default is PUBLIC
+
+   Example:  The following is an example of this property:
+
+       CLASS:PUBLIC
+
+
+3.8.1.6.  Geographic Position
+
+   Property Name:  GEO
+
+   Purpose:  This property specifies information related to the global
+      position for the activity specified by a calendar component.
+
+   Value Type:  FLOAT.  The value MUST be two SEMICOLON-separated FLOAT
+      values.
+
+   Property Parameters:  IANA and non-standard property parameters can
+      be specified on this property.
+
+   Conformance:  This property can be specified in "VEVENT" or "VTODO"
+      calendar components.
+
+   Description:  This property value specifies latitude and longitude,
+      in that order (i.e., "LAT LON" ordering).  The longitude
+      represents the location east or west of the prime meridian as a
+      positive or negative real number, respectively.  The longitude and
+      latitude values MAY be specified up to six decimal places, which
+      will allow for accuracy to within one meter of geographical
+      position.  Receiving applications MUST accept values of this
+      precision and MAY truncate values of greater precision.
+
+      Values for latitude and longitude shall be expressed as decimal
+      fractions of degrees.  Whole degrees of latitude shall be
+      represented by a two-digit decimal number ranging from 0 through
+      90.  Whole degrees of longitude shall be represented by a decimal
+      number ranging from 0 through 180.  When a decimal fraction of a
+      degree is specified, it shall be separated from the whole number
+      of degrees by a decimal point.
+
+      Latitudes north of the equator shall be specified by a plus sign
+      (+), or by the absence of a minus sign (-), preceding the digits
+      designating degrees.  Latitudes south of the Equator shall be
+      designated by a minus sign (-) preceding the digits designating
+      degrees.  A point on the Equator shall be assigned to the Northern
+      Hemisphere.
+
+      Longitudes east of the prime meridian shall be specified by a plus
+      sign (+), or by the absence of a minus sign (-), preceding the
+      digits designating degrees.  Longitudes west of the meridian shall
+      be designated by minus sign (-) preceding the digits designating
+      degrees.  A point on the prime meridian shall be assigned to the
+      Eastern Hemisphere.  A point on the 180th meridian shall be
+      assigned to the Western Hemisphere.  One exception to this last
+      convention is permitted.  For the special condition of describing
+      a band of latitude around the earth, the East Bounding Coordinate
+      data element shall be assigned the value +180 (180) degrees.
+
+      Any spatial address with a latitude of +90 (90) or -90 degrees
+      will specify the position at the North or South Pole,
+      respectively.  The component for longitude may have any legal
+      value.
+
+
+      With the exception of the special condition described above, this
+      form is specified in [ANSI INCITS 61-1986].
+
+      The simple formula for converting degrees-minutes-seconds into
+      decimal degrees is:
+
+      decimal = degrees + minutes/60 + seconds/3600.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       geo        = "GEO" geoparam ":" geovalue CRLF
+
+       geoparam   = *(";" other-param)
+
+       geovalue   = float ";" float
+       ;Latitude and Longitude components
+
+   Example:  The following is an example of this property:
+
+       GEO:37.386013;-122.082932
+
+
+3.8.1.7.  Location
+
+   Property Name:  LOCATION
+
+   Purpose:  This property defines the intended venue for the activity
+      defined by a calendar component.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA, non-standard, alternate text
+      representation, and language property parameters can be specified
+      on this property.
+
+   Conformance:  This property can be specified in "VEVENT" or "VTODO"
+      calendar component.
+
+   Description:  Specific venues such as conference or meeting rooms may
+      be explicitly specified using this property.  An alternate
+      representation may be specified that is a URI that points to
+      directory information with more structured specification of the
+      location.  For example, the alternate representation may specify
+      either an LDAP URL [RFC4516] pointing to an LDAP server entry or a
+      CID URL [RFC2392] pointing to a MIME body part containing a
+      Virtual-Information Card (vCard) [RFC2426] for the location.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       location   = "LOCATION"  locparam ":" text CRLF
+
+       locparam   = *(
+                  ;
+                  ; The following are OPTIONAL,
+                  ; but MUST NOT occur more than once.
+                  ;
+                  (";" altrepparam) / (";" languageparam) /
+                  ;
+                  ; The following is OPTIONAL,
+                  ; and MAY occur more than once.
+                  ;
+                  (";" other-param)
+                  ;
+                  )
+
+   Example:  The following are some examples of this property:
+
+       LOCATION:Conference Room - F123\, Bldg. 002
+
+       LOCATION;ALTREP="http://xyzcorp.com/conf-rooms/f123.vcf":
+        Conference Room - F123\, Bldg. 002
+
+
+3.8.1.9.  Priority
+
+   Property Name:  PRIORITY
+
+   Purpose:  This property defines the relative priority for a calendar
+      component.
+
+   Value Type:  INTEGER
+
+   Property Parameters:  IANA and non-standard property parameters can
+      be specified on this property.
+
+   Conformance:  This property can be specified in "VEVENT" and "VTODO"
+      calendar components.
+
+   Description:  This priority is specified as an integer in the range 0
+      to 9.  A value of 0 specifies an undefined priority.  A value of 1
+      is the highest priority.  A value of 2 is the second highest
+      priority.  Subsequent numbers specify a decreasing ordinal
+      priority.  A value of 9 is the lowest priority.
+
+      A CUA with a three-level priority scheme of "HIGH", "MEDIUM", and
+      "LOW" is mapped into this property such that a property value in
+      the range of 1 to 4 specifies "HIGH" priority.  A value of 5 is
+      the normal or "MEDIUM" priority.  A value in the range of 6 to 9
+      is "LOW" priority.
+
+      A CUA with a priority schema of "A1", "A2", "A3", "B1", "B2", ...,
+      "C3" is mapped into this property such that a property value of 1
+      specifies "A1", a property value of 2 specifies "A2", a property
+      value of 3 specifies "A3", and so forth up to a property value of
+      9 specifies "C3".
+
+      Other integer values are reserved for future use.
+
+      Within a "VEVENT" calendar component, this property specifies a
+      priority for the event.  This property may be useful when more
+      than one event is scheduled for a given time period.
+
+      Within a "VTODO" calendar component, this property specified a
+      priority for the to-do.  This property is useful in prioritizing
+      multiple action items for a given time period.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       priority   = "PRIORITY" prioparam ":" priovalue CRLF
+       ;Default is zero (i.e., undefined).
+
+       prioparam  = *(";" other-param)
+
+       priovalue   = integer       ;Must be in the range [0..9]
+          ; All other values are reserved for future use.
+
+   Example:  The following is an example of a property with the highest
+      priority:
+
+       PRIORITY:1
+
+      The following is an example of a property with a next highest
+      priority:
+
+       PRIORITY:2
+
+      The following is an example of a property with no priority.  This
+      is equivalent to not specifying the "PRIORITY" property:
+
+       PRIORITY:0
+
+
+3.8.1.12.  Summary
+
+   Property Name:  SUMMARY
+
+   Purpose:  This property defines a short summary or subject for the
+      calendar component.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA, non-standard, alternate text
+      representation, and language property parameters can be specified
+      on this property.
+
+   Conformance:  The property can be specified in "VEVENT", "VTODO",
+      "VJOURNAL", or "VALARM" calendar components.
+
+   Description:  This property is used in the "VEVENT", "VTODO", and
+      "VJOURNAL" calendar components to capture a short, one-line
+      summary about the activity or journal entry.
+
+      This property is used in the "VALARM" calendar component to
+      capture the subject of an EMAIL category of alarm.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       summary    = "SUMMARY" summparam ":" text CRLF
+
+       summparam  = *(
+                  ;
+                  ; The following are OPTIONAL,
+                  ; but MUST NOT occur more than once.
+                  ;
+                  (";" altrepparam) / (";" languageparam) /
+                  ;
+                  ; The following is OPTIONAL,
+                  ; and MAY occur more than once.
+                  ;
+                  (";" other-param)
+                  ;
+                  )
+
+   Example:  The following is an example of this property:
+
+       SUMMARY:Department Party
+
+
+3.8.2.4.  Date-Time Start
+
+   Property Name:  DTSTART
+
+   Purpose:  This property specifies when the calendar component begins.
+
+   Value Type:  The default value type is DATE-TIME.  The time value
+      MUST be one of the forms defined for the DATE-TIME value type.
+      The value type can be set to a DATE value type.
+
+   Property Parameters:  IANA, non-standard, value data type, and time
+      zone identifier property parameters can be specified on this
+      property.
+
+   Conformance:  This property can be specified once in the "VEVENT",
+      "VTODO", or "VFREEBUSY" calendar components as well as in the
+      "STANDARD" and "DAYLIGHT" sub-components.  This property is
+      REQUIRED in all types of recurring calendar components that
+      specify the "RRULE" property.  This property is also REQUIRED in
+      "VEVENT" calendar components contained in iCalendar objects that
+      don't specify the "METHOD" property.
+
+   Description:  Within the "VEVENT" calendar component, this property
+      defines the start date and time for the event.
+
+      Within the "VFREEBUSY" calendar component, this property defines
+      the start date and time for the free or busy time information.
+      The time MUST be specified in UTC time.
+
+      Within the "STANDARD" and "DAYLIGHT" sub-components, this property
+      defines the effective start date and time for a time zone
+      specification.  This property is REQUIRED within each "STANDARD"
+      and "DAYLIGHT" sub-components included in "VTIMEZONE" calendar
+      components and MUST be specified as a date with local time without
+      the "TZID" property parameter.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       dtstart    = "DTSTART" dtstparam ":" dtstval CRLF
+
+       dtstparam  = *(
+                  ;
+                  ; The following are OPTIONAL,
+                  ; but MUST NOT occur more than once.
+                  ;
+                  (";" "VALUE" "=" ("DATE-TIME" / "DATE")) /
+                  (";" tzidparam) /
+                  ;
+                  ; The following is OPTIONAL,
+                  ; and MAY occur more than once.
+                  ;
+                  (";" other-param)
+                  ;
+                  )
+
+       dtstval    = date-time / date
+       ;Value MUST match value type
+
+   Example:  The following is an example of this property:
+
+       DTSTART:19980118T073000Z
+
+
+3.8.2.2.  Date-Time End
+
+   Property Name:  DTEND
+
+   Purpose:  This property specifies the date and time that a calendar
+      component ends.
+
+   Value Type:  The default value type is DATE-TIME.  The value type can
+      be set to a DATE value type.
+
+   Property Parameters:  IANA, non-standard, value data type, and time
+      zone identifier property parameters can be specified on this
+      property.
+
+   Conformance:  This property can be specified in "VEVENT" or
+      "VFREEBUSY" calendar components.
+
+   Description:  Within the "VEVENT" calendar component, this property
+      defines the date and time by which the event ends.  The value type
+      of this property MUST be the same as the "DTSTART" property, and
+      its value MUST be later in time than the value of the "DTSTART"
+      property.  Furthermore, this property MUST be specified as a date
+      with local time if and only if the "DTSTART" property is also
+      specified as a date with local time.
+
+      Within the "VFREEBUSY" calendar component, this property defines
+      the end date and time for the free or busy time information.  The
+      time MUST be specified in the UTC time format.  The value MUST be
+      later in time than the value of the "DTSTART" property.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       dtend      = "DTEND" dtendparam ":" dtendval CRLF
+
+       dtendparam = *(
+                  ;
+                  ; The following are OPTIONAL,
+                  ; but MUST NOT occur more than once.
+                  ;
+                  (";" "VALUE" "=" ("DATE-TIME" / "DATE")) /
+                  (";" tzidparam) /
+                  ;
+                  ; The following is OPTIONAL,
+                  ; and MAY occur more than once.
+                  ;
+                  (";" other-param)
+                  ;
+                  )
+
+       dtendval   = date-time / date
+       ;Value MUST match value type
+
+   Example:  The following is an example of this property:
+
+       DTEND:19960401T150000Z
+
+       DTEND;VALUE=DATE:19980704
+
+
+3.8.3.1.  Time Zone Identifier
+
+   Property Name:  TZID
+
+   Purpose:  This property specifies the text value that uniquely
+      identifies the "VTIMEZONE" calendar component in the scope of an
+      iCalendar object.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA and non-standard property parameters can
+      be specified on this property.
+
+   Conformance:  This property MUST be specified in a "VTIMEZONE"
+      calendar component.
+
+   Description:  This is the label by which a time zone calendar
+      component is referenced by any iCalendar properties whose value
+      type is either DATE-TIME or TIME and not intended to specify a UTC
+      or a "floating" time.  The presence of the SOLIDUS character as a
+      prefix, indicates that this "TZID" represents an unique ID in a
+      globally defined time zone registry (when such registry is
+      defined).
+
+         Note: This document does not define a naming convention for
+         time zone identifiers.  Implementers may want to use the naming
+         conventions defined in existing time zone specifications such
+         as the public-domain TZ database [TZDB].  The specification of
+         globally unique time zone identifiers is not addressed by this
+         document and is left for future study.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       tzid       = "TZID" tzidpropparam ":" [tzidprefix] text CRLF
+
+       tzidpropparam      = *(";" other-param)
+
+       ;tzidprefix        = "/"
+       ; Defined previously. Just listed here for reader convenience.
+
+   Example:  The following are examples of non-globally unique time zone
+      identifiers:
+
+       TZID:America/New_York
+
+       TZID:America/Los_Angeles
+
+      The following is an example of a fictitious globally unique time
+      zone identifier:
+
+       TZID:/example.org/America/New_York
+
+
+3.2.17.  RSVP Expectation
+
+   Parameter Name:  RSVP
+
+   Purpose:  To specify whether there is an expectation of a favor of a
+      reply from the calendar user specified by the property value.
+
+   Format Definition:  This property parameter is defined by the
+      following notation:
+
+       rsvpparam = "RSVP" "=" ("TRUE" / "FALSE")
+       ; Default is FALSE
+
+   Description:  This parameter can be specified on properties with a
+      CAL-ADDRESS value type.  The parameter identifies the expectation
+      of a reply from the calendar user specified by the property value.
+      This parameter is used by the "Organizer" to request a
+      participation status reply from an "Attendee" of a group-scheduled
+      event or to-do.  If not specified on a property that allows this
+      parameter, the default value is FALSE.
+
+   Example:
+
+       ATTENDEE;RSVP=TRUE:mailto:jsmith@example.com
+
+
+3.2.18.  Sent By
+
+   Parameter Name:  SENT-BY
+
+   Purpose:  To specify the calendar user that is acting on behalf of
+      the calendar user specified by the property.
+
+   Format Definition:  This property parameter is defined by the
+      following notation:
+
+       sentbyparam        = "SENT-BY" "=" DQUOTE cal-address DQUOTE
+
+   Description:  This parameter can be specified on properties with a
+      CAL-ADDRESS value type.  The parameter specifies the calendar user
+      that is acting on behalf of the calendar user specified by the
+      property.  The parameter value MUST be a mailto URI as defined in
+      [RFC2368].  The individual calendar address parameter values MUST
+      each be specified in a quoted-string.
+
+   Example:
+
+       ORGANIZER;SENT-BY="mailto:sray@example.com":mailto:
+        jsmith@example.com
+
+
+3.8.1.10.  Resources
+
+   Property Name:  RESOURCES
+
+   Purpose:  This property defines the equipment or resources
+      anticipated for an activity specified by a calendar component.
+
+   Value Type:  TEXT
+
+   Property Parameters:  IANA, non-standard, alternate text
+      representation, and language property parameters can be specified
+      on this property.
+
+   Conformance:  This property can be specified once in "VEVENT" or
+      "VTODO" calendar component.
+
+   Description:  The property value is an arbitrary text.  More than one
+      resource can be specified as a COMMA-separated list of resources.
+
+   Format Definition:  This property is defined by the following
+      notation:
+
+       resources  = "RESOURCES" resrcparam ":" text *("," text) CRLF
+
+       resrcparam = *(
+                  ;
+                  ; The following are OPTIONAL,
+                  ; but MUST NOT occur more than once.
+                  ;
+                  (";" altrepparam) / (";" languageparam) /
+                  ;
+                  ; The following is OPTIONAL,
+                  ; and MAY occur more than once.
+                  ;
+                  (";" other-param)
+                  ;
+                  )
+
+   Example:  The following is an example of this property:
+
+       RESOURCES:EASEL,PROJECTOR,VCR
+
+       RESOURCES;LANGUAGE=fr:Nettoyeur haute pression
