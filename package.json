@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "file-saver": "^2.0.2",
+    "semantic-ui-react": "^0.88.2"
+  }
+}
