@@ -7,13 +7,78 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
 
-        <div class="ui container">
-            <h1 class="ui header">GO TEAM PINE LINE!</h1>
-        </div>
+    <div class="ui container">
+        <h1 class="ui header">GO TEAM PINE LINE!</h1>
+
+        <form class="ui form">
+
+            <div class="field">
+                <label>Event Title:</label>
+                <input type="text" name="first-name" placeholder="First Name">
+            </div>
+
+            <div class="field">
+                <label>Description:</label>
+                <input type="text" name="last-name" placeholder="Last Name">
+            </div>
+
+            <div class="field">
+                <label>Location:</label>
+                <input type="text" name="last-name" placeholder="Last Name">
+            </div>
+
+            <div class="two fields">
+
+                <div class="field">
+                    <label>Sent by:</label>
+                    <input type="text" name="last-name" placeholder="Last Name">
+                </div>
+
+                <div class="field">
+                    <label>RSVP?</label>
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" class="hidden">
+                        <label>Yes</label>
+                    </div>
+
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0" class="hidden">
+                        <label>No</label>
+                    </div>
+                </div>
+
+            </div>
+
+            #start date
+            <div class="">
+
+            </div>
+
+            #end date
+            <div class="">
+
+            </div>
+
+            #time zone
+            <div class="">
+
+            </div>
+
+            #priority
+            <div class="">
+
+            </div>
+
+            <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
+
+        </form>
+    </div>
+
 
     </body>
 
