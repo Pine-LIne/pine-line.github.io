@@ -15,85 +15,72 @@
 
     <body>
 
-    <div class="ui container">
+    <div class="ui container" >
         <h1 class="ui header">GO TEAM PINE LINE!</h1>
 
         <form class="ui form">
 
             <div class="eight wide field">
                 <label>Event Title:</label>
-                <input type="text" name="eventTitle" placeholder="">
+                <input type="text" placeholder="Add title" id="title">
             </div>
 
             <div class="eight wide field">
                 <label>Description:</label>
-                <input type="text" name="eventDescription" placeholder="">
+                <input type="text" placeholder="Add description" id="description">
             </div>
 
             <div class="eight wide field">
                 <label>Location:</label>
-                <input type="text" name="eventLocation" placeholder="">
+                <input type="text" placeholder="Add location" id="location">
             </div>
 
             <div class="fields">
 
                 <div class="field">
                     <label>Sent by:</label>
-                    <input type="text" name="eventSentby" placeholder="">
+                    <input type="text" placeholder="Add event creator" id="sentBy">
                 </div>
+
                 <div class="field">
                     <label>RSVP?</label>
                     <div class="ui checkbox">
-                        <input type="checkbox" tabindex="0" class="">
+                        <input type="checkbox">
                         <label>Yes</label>
                     </div>
-
                     <div class="ui checkbox">
-                        <input type="checkbox" tabindex="0" class="">
+                        <input type="checkbox">
                         <label>No</label>
                     </div>
                 </div>
 
             </div>
+                <div class="fields">
+                    <div class="two wide field">
+                        Start Date:
+                    </div>
+                    <div class="four wide field">
+                        <input type="date" id="startDate" required>
+                    </div>
+                    <div class="two wide field">
+                        <input type="time" id="startTime" required>
+                    </div>
+                </div>
 
-            <div class="fields">
-                <div class="two wide field">
-                    Start Date:
+                <div class="fields">
+                    <div class="two wide field">
+                        End Date:
+                    </div>
+                    <div class="four wide field">
+                        <input type="date" id="endDate" required>
+                    </div>
+                    <div class="two wide field">
+                        <input type="time" id="endTime" required>
+                    </div>
                 </div>
-                <div class="four wide field">
-                    <input type="date" name="startDate" id="startDate" required>
-                </div>
-                <div class="two wide field">
-                    <input type="time" name="startTime" id="startTime" required>
-                </div>
-            </div>
-
-            <div class="fields">
-                <div class="two wide field">
-                    End Date:
-                </div>
-                <div class="four wide field">
-                    <input type="date" name="endDate" id="endDate" required>
-                </div>
-                <div class="two wide field">
-                    <input type="time" name="endTime" id="endTime" required>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>All Day?</label>
-                <div class="ui checkbox">
-                    <input type="checkbox" tabindex="0" class="" id="allDay">
-                    <label>Yes</label>
-                </div>
-                <div class="ui checkbox">
-                    <input type="checkbox" tabindex="0" class="" id="notAllDay">
-                    <label>No</label>
-                </div>
-            </div>
 
             <div class="eight wide field">
-                <select>
+                <select id="timezones">
                     <option timeZoneId="1" gmtAdjustment="GMT-12:00" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
                     <option timeZoneId="2" gmtAdjustment="GMT-11:00" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
                     <option timeZoneId="3" gmtAdjustment="GMT-10:00" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
@@ -179,6 +166,18 @@
                 </select>
             </div>
 
+            <div class="field">
+                <label>All Day?</label>
+                <div class="ui checkbox">
+                    <input type="checkbox" id="allDay">
+                    <label>Yes</label>
+                </div>
+                <div class="ui checkbox">
+                    <input type="checkbox" id="notAllDay">
+                    <label>No</label>
+                </div>
+            </div>
+
             <div class="fields">
                 <div class="field">
                     <label>
@@ -186,17 +185,17 @@
                     </label>
                 </div>
                 <div class="field">
-                    <div class="ui radio checkbox">
-                        <input type="radio" class="hidden" readonly="" tabindex="0" />
+                    <div class="ui radio checkbox" id="priority">
+                        <input type="radio" value="high" />
                         <label>High</label>
-                        <input type="radio" class="hidden" readonly="" tabindex="0" />
+                        <input type="radio" value="med" />
                         <label>Medium</label>
-                        <input type="radio" class="hidden" readonly="" tabindex="0" />
+                        <input type="radio" value="low" />
                         <label>Low</label>
                     </div>
                 </div>
             </div>
-
+<br>
             <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
 
         </form>
