@@ -81,7 +81,9 @@ function createEvent() {
 
     return string;
 
-  event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
+    // Priority - no clue how to do this part ...
+    const priority = document.getElementById('priority').value.replace;
+    event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
 }
 
 function createFile(data) {
