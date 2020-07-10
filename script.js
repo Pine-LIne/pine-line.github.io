@@ -35,7 +35,8 @@ function createEvent() {
         "TZNAME:HST\n" +
         "END:STANDARD\n" +
         "END:VTIMEZONE\n" +
-        */"BEGIN:VEVENT";
+        */
+        "BEGIN:VEVENT";
 
     const summary = document.getElementById('summary').value;
     console.log(summary);
@@ -79,6 +80,8 @@ function createEvent() {
     console.log(string);
 
     return string;
+
+  event = event.concat(`PRIORITY:${document.getElementById('priority').value}\r\n`);
 }
 
 function createFile(data) {
