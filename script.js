@@ -89,5 +89,8 @@ function createEvent() {
 function createFile(data) {
 
     const blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "event.ics");
+    // saveAs(blob, "event.ics");
+    saveAs(blob, `${document.getElementById('summary').value}.ics`);
+    // saveAs(blob, document.getElementById('summary').value.ics);
+
 }
