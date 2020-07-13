@@ -11,16 +11,25 @@ function createDTStamp(date) {
     (d.length == 1) && (d = '0' + d);
     (m.length == 1) && (m = '0' + m);
 
-    let DTStamp= y + m + d + "T" + h + min + "00Z";
+    let DTStamp= y + m + d + "T" + h + min + "00";
     return DTStamp;
 }
 
 //validation goes here
 function submitForm() {
 
-    let event = createEvent();
+    const startDate = document.getElementById('startDate').value;//.replace(/-/g,'');
+    const startTime = document.getElementById('startTime').value;//.replace(':','');
+    const endDate = document.getElementById('endDate').value;//.replace(/-/g,'');
+    const endTime = document.getElementById('endTime').value;//.replace(':','');
 
-    createFile(event);
+    console.log(startDate+startTime);
+    console.log(endDate+endTime);
+    if (startDate+startTime <= endDate+endTime) {
+        createFile(createEvent());
+    } else {
+        alert(`Error: ${endTime} on ${endDate} comes before ${startTime} on ${startDate}`);
+    }
 }
 
 function createEvent() {
@@ -88,14 +97,14 @@ function createEvent() {
         }
     } */
 
-    event = event.concat("\nTZID:" + tzid);
+    event = event.concat(`\nTZID:${tzid}`);
 
     //TIMEZONE OFFSET ADJUSTMENT
     /*
     event = event.concat("\nTZURL:TZURL:http://tzurl.org/zoneinfo-outlook/" + tzid);
     event = event.concat("\nBEGIN:STANDARD");
-    event = event.concat("\nTZOFFSETFROM:" + tzOffsetFrom);
-    event = event.concat("\nTZOFFSETTO:" + tzOffsetTo);
+    event = event.concat("\nTZOFFSETFROM:${tzOffsetFrom);
+    event = event.concat("\nTZOFFSETTO:${tzOffsetTo);
     event = event.concat("\nEND:STANDARD");
     event = event.concat("\nEND:VTIMEZONE");
     */
@@ -106,28 +115,28 @@ function createEvent() {
     //DTSTAMP
     const DTStamp = createDTStamp(date);
     console.log(DTStamp);
-    event = event.concat("\nDTSTAMP:" + DTStamp);
+    event = event.concat(`\nDTSTAMP:${DTStamp}`);
 
     //UID
     const sentBy = document.getElementById('sentBy').value;
     const UID = DTStamp + "--" + sentBy.replace(/\s/g, '_');
     console.log(UID);
-    event = event.concat("\nUID:" + UID);
+    event = event.concat(`\nUID:${UID}`);
 
     //SUMMARY
     const summary = document.getElementById('summary').value;
     console.log(summary);
-    event = event.concat("\nSUMMARY:" + summary);
+    event = event.concat(`\nSUMMARY:${summary}`);
 
     //LOCATION
     const location = document.getElementById('location').value;
     console.log(location);
-    event = event.concat("\nLOCATION:" + location);
+    event = event.concat(`\nLOCATION:${location}`);
 
     //SENT-BY
     //const sentBy = document.getElementById('sentBy').value;
     console.log(sentBy);
-    event = event.concat("\nSENT-BY:" + sentBy);
+    event = event.concat(`\nSENT-BY:${sentBy}`);
 
 
     //DTSTART
@@ -136,7 +145,7 @@ function createEvent() {
     console.log(startDate);
     console.log(startTime);
     const DTStart = startDate + "T" + startTime + "00";
-    event = event.concat("\nDTSTART:" + DTStart);
+    event = event.concat(`\nDTSTART:${DTStart}`);
 
     //DTEND
     const endDate = document.getElementById('endDate').value.replace(/-/g,'');
@@ -145,7 +154,7 @@ function createEvent() {
     console.log(endTime);
 
     const DTEnd = endDate + "T" + endTime + "00";
-    event = event.concat('\nDTEND:' + DTEnd);
+    event = event.concat(`\nDTEND:${DTEnd}`);
 
 
     //EVENT END
