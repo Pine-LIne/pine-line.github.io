@@ -103,8 +103,8 @@ function createEvent() {
     /*
     event = event.concat("\nTZURL:TZURL:http://tzurl.org/zoneinfo-outlook/" + tzid);
     event = event.concat("\nBEGIN:STANDARD");
-    event = event.concat("\nTZOFFSETFROM:${tzOffsetFrom);
-    event = event.concat("\nTZOFFSETTO:${tzOffsetTo);
+    event = event.concat(`\nTZOFFSETFROM:${tzOffsetFrom}`);
+    event = event.concat(`\nTZOFFSETTO:${tzOffsetTo}`);
     event = event.concat("\nEND:STANDARD");
     event = event.concat("\nEND:VTIMEZONE");
     */
