@@ -11,7 +11,7 @@ function createDTStamp(date) {
     (d.length == 1) && (d = '0' + d);
     (m.length == 1) && (m = '0' + m);
 
-    let DTStamp= y + m + d + "T" + h + min + "00Z";
+    let DTStamp= y + m + d + "T" + h + min + "00";
     return DTStamp;
 }
 
