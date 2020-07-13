@@ -31,6 +31,7 @@ function createEvent() {
         "\nVERSION:2.0" +
         "\nPRODID:Team-Pine-Line" +
         "\nCALSCALE:GREGORIAN";
+
     /*
         "\nBEGIN:VTIMEZONE";
         "TZID:Pacific/Honolulu\n" +
@@ -49,6 +50,7 @@ function createEvent() {
     let tzOffsetFrom = "";
     let tzOffsetTo = "";
 
+    //GET DEFAULT/USER TIMEZONE
     if (tzid == "Etc/UTC") {
 
         tzOffset = (date.getTimezoneOffset() / -60).toString();
@@ -73,19 +75,24 @@ function createEvent() {
             }
         }
 
-    } /* else {
+    } /*
 
-        tzOffsetFrom = tzSelect.options[tzSelect.selectedIndex].getAttribute('gmtOffset');
+        else {
 
-        if (tzSelect.options[tzSelect.selectedIndex].getAttribute('useDaylightTime') == "1") {
-            tzOffsetTo = (Number(tzOffsetFrom) + 100).toString();
-        } else {
-            tzOffsetTo = tzOffsetFrom;
+            tzOffsetFrom = tzSelect.options[tzSelect.selectedIndex].getAttribute('gmtOffset');
+
+            if (tzSelect.options[tzSelect.selectedIndex].getAttribute('useDaylightTime') == "1") {
+                tzOffsetTo = (Number(tzOffsetFrom) + 100).toString();
+            } else {
+                tzOffsetTo = tzOffsetFrom;
         }
     } */
 
     event = event.concat("\nTZID:" + tzid);
+
+    //TIMEZONE OFFSET ADJUSTMENT
     /*
+    event = event.concat("\nTZURL:TZURL:http://tzurl.org/zoneinfo-outlook/" + tzid);
     event = event.concat("\nBEGIN:STANDARD");
     event = event.concat("\nTZOFFSETFROM:" + tzOffsetFrom);
     event = event.concat("\nTZOFFSETTO:" + tzOffsetTo);
@@ -123,7 +130,6 @@ function createEvent() {
     event = event.concat("\nSENT-BY:" + sentBy);
 
 
-
     //DTSTART
     const startDate = document.getElementById('startDate').value.replace(/-/g,'');
     const startTime = document.getElementById('startTime').value.replace(':','');
@@ -153,6 +159,7 @@ function createEvent() {
 
 function createFile(data) {
 
+    console.log(data);
     const blob = new Blob([data], {type: "text/plain;charset=utf-8"});
     saveAs(blob, "event.ics");
 }
