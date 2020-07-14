@@ -39,12 +39,12 @@
 
                 <div class="field">
                     <label>RSVP?</label>
-                    <div class="ui checkbox">
-                        <input type="checkbox">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="rsvp" value="YES" checked="checked">
                         <label>Yes</label>
                     </div>
-                    <div class="ui checkbox">
-                        <input type="checkbox">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="rsvp" value="NO">
                         <label>No</label>
                     </div>
                 </div>
@@ -184,28 +184,64 @@
               <div class="field">
                 <!-- High Priority value 1 -->
                 <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="1" checked="checked" id="priority1">
+                  <input type="radio" name="radio" value="1" checked="checked" id="priorityhigh">
                   <label>High</label>
                 </div>
               </div>
               <div class="field">
                 <!-- Medium Priority value 2 -->
                 <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="2" id="priority2">
+                  <input type="radio" name="radio" value="5" id="prioritymed">
                   <label>Medium</label>
                 </div>
               </div>
               <div class="field">
                 <!-- Low Priority value 3 -->
                 <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="3" id="priority3">
+                  <input type="radio" name="radio" value="9" id="prioritylow">
                   <label>Low</label>
                 </div>
               </div>
             </div>
           </div>
 
-            <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
+<!--        <div class="two wide field">-->
+<!--          <label> Classification </label>-->
+<!--          <select id="classification">-->
+<!--            <option value="1">Public</option>-->
+<!--            <option value="2">Private</option>-->
+<!--            <<option value="3">Confidential</option>-->
+<!--          </select>-->
+<!--        </div>-->
+
+          <div class="ui form">
+            <div class="inline fields" >
+              <label>Classification</label>
+              <div class="field">
+                <!-- Public -->
+                <div class="ui radio checkbox">
+                  <input type="radio" name="classification" value="PUBLIC" checked="checked" id="classification">
+                  <label>Public</label>
+                </div>
+              </div>
+              <div class="field">
+                <!-- Private -->
+                <div class="ui radio checkbox">
+                  <input type="radio" name="classification" value="PRIVATE" id="classification">
+                  <label>Private</label>
+                </div>
+              </div>
+              <div class="field">
+                <!-- Confidential -->
+                <div class="ui radio checkbox">
+                  <input type="radio" name="classification" value="CONFIDENTIAL" id="classification">
+                  <label>Confidential</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
 
         </form>
 

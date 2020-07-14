@@ -40,8 +40,8 @@ function createEvent() {
         "\nVERSION:2.0" +
         "\nPRODID:Team-Pine-Line" +
         "\nCALSCALE:GREGORIAN";
-        "\nBEGIN:VEVENT";
-    // let string = "BEGIN:VEVENT";
+
+
 
     /*
         "\nBEGIN:VTIMEZONE";
@@ -114,19 +114,8 @@ function createEvent() {
     //EVENT START
     event = event.concat("\nBEGIN:VEVENT");
 
-    // PRIORITY
-    // fetching radio buttons by name
-    var ele = document.getElementsByName('radio');
-    // fetching value if radio button selected
-    for(i = 0; i < ele.length; i++) {
-      if(ele[i].checked)
-       var priority=ele[i].value;
-     }
-    // variable event should not be used, using string variable and concatenating priority details in it
-    event = event.concat('PRIORITY:'+priority+'\r\n');
 
-
-  //DTSTAMP
+    //DTSTAMP
     const DTStamp = createDTStamp(date);
     console.log(DTStamp);
     event = event.concat(`\nDTSTAMP:${DTStamp}`);
@@ -184,6 +173,24 @@ function createEvent() {
     event = event.concat('PRIORITY:'+priority+'\r\n');
 
  */
+
+   // PRIORITY
+   // fetching radio buttons by name
+   var prioElement = document.getElementsByName('radio');
+
+   // fetching value if radio button selected
+   for(i = 0; i < prioElement.length; i++) {
+    if(prioElement[i].checked)
+      var priority = prioElement[i].value;
+    }
+    event = event.concat('\nPRIORITY:' + priority);
+
+
+    //CLASSIFICATION
+    const classification = document.getElementById('classification').value;
+    console.log(classification);
+    event = event.concat(`\nCLASS:${classification}`);
+
 
     //EVENT END
     event = event.concat("\nEND:VEVENT" + "\nEND:VCALENDAR");
