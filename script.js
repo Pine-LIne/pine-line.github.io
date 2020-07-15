@@ -141,6 +141,14 @@ function createEvent() {
     console.log(sentBy);
     event = event.concat(`\nSENT-BY:${sentBy}`);
 
+    //RSVP
+    var rsvpVar = document.getElementsByName('rsvp');
+    for(i = 0; i < rsvpVar.length; i++) {
+      if(rsvpVar[i].checked)
+        var rsvpVal = rsvpVar[i].value;
+    }
+    event = event.concat('\nRSVP:' + rsvpVal);
+
 
     //DTSTART
     const startDate = document.getElementById('startDate').value.replace(/-/g,'');
@@ -159,47 +167,35 @@ function createEvent() {
     const DTEnd = endDate + "T" + endTime + "00";
     event = event.concat(`\nDTEND:${DTEnd}`);
 
-/*
-    // PRIORITY
-    // fetching radio buttons by name
-    var ele = document.getElementsByName('radio');
-    // fetching value if radio button selected
-    for(i = 0; i < ele.length; i++) {
-       if(ele[i].checked)
-        var priority=ele[i].value;
-    }
 
-    // variable event should not be used, using string variable and concatenating priority details in it
-    event = event.concat('PRIORITY:'+priority+'\r\n');
-
- */
-
-   // PRIORITY
-   // fetching radio buttons by name
-   var prioElement = document.getElementsByName('radio');
-
-   // fetching value if radio button selected
-   for(i = 0; i < prioElement.length; i++) {
-    if(prioElement[i].checked)
-      var priority = prioElement[i].value;
+    //PRIORITY
+    var prioElement = document.getElementsByName('radio'); // fetches radio buttons by name
+    for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
+      if(prioElement[i].checked)
+        var priority = prioElement[i].value;
     }
     event = event.concat('\nPRIORITY:' + priority);
 
 
     //CLASSIFICATION
-    const classification = document.getElementById('classification').value;
-    console.log(classification);
-    event = event.concat(`\nCLASS:${classification}`);
+    var classif = document.getElementsByName('classification');
+    for(i = 0; i < classif.length; i++) {
+      if(classif[i].checked)
+        var classVal = classif[i].value;
+    }
+    event = event.concat('\nCLASS:' + classVal);
 
 
     //EVENT END
     event = event.concat("\nEND:VEVENT" + "\nEND:VCALENDAR");
+
 
     //TEST
     console.log(event);
 
     return event;
 }
+
 
 function createFile(data) {
 
@@ -208,5 +204,5 @@ function createFile(data) {
     // saveAs(blob, "event.ics");
     saveAs(blob, `${document.getElementById('summary').value}.ics`);
     // saveAs(blob, document.getElementById('summary').value.ics);
-
+  
 }
