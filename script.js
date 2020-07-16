@@ -41,6 +41,8 @@ function createEvent() {
         "\nPRODID:Team-Pine-Line" +
         "\nCALSCALE:GREGORIAN";
 
+
+
     /*
         "\nBEGIN:VTIMEZONE";
         "TZID:Pacific/Honolulu\n" +
@@ -112,6 +114,7 @@ function createEvent() {
     //EVENT START
     event = event.concat("\nBEGIN:VEVENT");
 
+
     //DTSTAMP
     const DTStamp = createDTStamp(date);
     console.log(DTStamp);
@@ -138,6 +141,14 @@ function createEvent() {
     console.log(sentBy);
     event = event.concat(`\nSENT-BY:${sentBy}`);
 
+    //RSVP
+    var rsvpVar = document.getElementsByName('rsvp');
+    for(i = 0; i < rsvpVar.length; i++) {
+      if(rsvpVar[i].checked)
+        var rsvpVal = rsvpVar[i].value;
+    }
+    event = event.concat('\nRSVP:' + rsvpVal);
+
 
     //DTSTART
     const startDate = document.getElementById('startDate').value.replace(/-/g,'');
@@ -157,8 +168,27 @@ function createEvent() {
     event = event.concat(`\nDTEND:${DTEnd}`);
 
 
+    //PRIORITY
+    var prioElement = document.getElementsByName('radio'); // fetches radio buttons by name
+    for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
+      if(prioElement[i].checked)
+        var priority = prioElement[i].value;
+    }
+    event = event.concat('\nPRIORITY:' + priority);
+
+
+    //CLASSIFICATION
+    var classif = document.getElementsByName('classification');
+    for(i = 0; i < classif.length; i++) {
+      if(classif[i].checked)
+        var classVal = classif[i].value;
+    }
+    event = event.concat('\nCLASS:' + classVal);
+
+
     //EVENT END
     event = event.concat("\nEND:VEVENT" + "\nEND:VCALENDAR");
+
 
     //TEST
     console.log(event);
@@ -166,9 +196,13 @@ function createEvent() {
     return event;
 }
 
+
 function createFile(data) {
 
     console.log(data);
     const blob = new Blob([data], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "event.ics");
+    // saveAs(blob, "event.ics");
+    saveAs(blob, `${document.getElementById('summary').value}.ics`);
+    // saveAs(blob, document.getElementById('summary').value.ics);
+  
 }
