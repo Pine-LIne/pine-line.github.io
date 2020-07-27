@@ -169,7 +169,7 @@ function createEvent() {
 
 
     //PRIORITY
-    var prioElement = document.getElementsByName('radio'); // fetches radio buttons by name
+    var prioElement = document.getElementsByName('priority'); // fetches radio buttons by name
     for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
       if(prioElement[i].checked)
         var priority = prioElement[i].value;
