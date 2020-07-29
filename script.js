@@ -226,6 +226,7 @@ function createEvent() {
 
     res = res.slice(0,-1);
     resources = resources.concat(res);
+    console.log(resources);
 
     if(resBool == 1) {
         event = event.concat(resources);
