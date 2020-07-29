@@ -144,8 +144,8 @@ function createEvent() {
     //RSVP
     var rsvpVar = document.getElementsByName('rsvp');
     for(i = 0; i < rsvpVar.length; i++) {
-      if(rsvpVar[i].checked)
-        var rsvpVal = rsvpVar[i].value;
+        if(rsvpVar[i].checked)
+            var rsvpVal = rsvpVar[i].value;
     }
     event = event.concat('\nRSVP:' + rsvpVal);
 
@@ -168,11 +168,36 @@ function createEvent() {
     event = event.concat(`\nDTEND:${DTEnd}`);
 
 
+    //RRULE
+    var rrule = "\nRRULE:";
+    var recurrence = document.getElementsByName('recurrence');
+    var interval = document.getElementsByName('interval');
+    var untilDate = document.getElementById('u_repeat').value.replace(/-/g,'');
+    console.log(recurrence);
+    console.log(interval);
+    console.log(untilDate);
+
+    if(!recurrence[0].checked) {
+        for (let i = 1; i < recurrence.length; i++) {
+            if (recurrence[i].checked) {
+                rrule = rrule.concat(`FREQ=${recurrence[i].value};`);
+            }
+        }
+        if (interval) {
+            rrule = rrule.concat(`INTERVAL=${interval[0].value};`);
+        }
+        if (untilDate) {
+            rrule = rrule.concat(`UNTIL=${untilDate}T235900`);
+        }
+        event = event.concat(rrule)
+    }
+
+
     //PRIORITY
     var prioElement = document.getElementsByName('priority'); // fetches radio buttons by name
     for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
-      if(prioElement[i].checked)
-        var priority = prioElement[i].value;
+        if(prioElement[i].checked)
+            var priority = prioElement[i].value;
     }
     event = event.concat('\nPRIORITY:' + priority);
 
@@ -180,8 +205,8 @@ function createEvent() {
     //CLASSIFICATION
     var classif = document.getElementsByName('classification');
     for(i = 0; i < classif.length; i++) {
-      if(classif[i].checked)
-        var classVal = classif[i].value;
+        if(classif[i].checked)
+            var classVal = classif[i].value;
     }
     event = event.concat('\nCLASS:' + classVal);
 
@@ -204,5 +229,5 @@ function createFile(data) {
     // saveAs(blob, "event.ics");
     saveAs(blob, `${document.getElementById('summary').value}.ics`);
     // saveAs(blob, document.getElementById('summary').value.ics);
-  
+
 }
