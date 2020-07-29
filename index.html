@@ -16,31 +16,45 @@
 <body>
 
     <div class="gradient-background">
-    <div class="ui container">
+      <div class="ui container mainFont">
       <br/>
-      <img src = "cal-logo-white.png" width = "800">
+      <img src="cal-logo-gradient1.png" width = "700">
       <br/>
-      <h1 class="ui header">INSTRUCTIONS:</h1>
-      <div class="ui divider white "></div>
+      <h1 class="ui header mainFont">INSTRUCTIONS:</h1>
+        <p>Creating and generating a calendar (*.ics) event file using our web app is easy to do. Simply follow the
+          written instructions here, or watch the video to get started! <br>
+        </p>
+        <ul class="a">
+          <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
+          <li>Step 2: Click the "Generate Calendar Event" button.
+            <ul>
+              <li>A generated *.ics file will download to your downloads folder.</li>
+              <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
+            </ul>
+          </li>
+          <li>Step 3: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
+        </ul>
+<!--      <div class="ui divider white "></div>-->
+      <br><hr><br>
 
-        <h1 class="ui header">GO TEAM PINE LINE!</h1>
+<!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
 
     <form class="ui form" onsubmit="return false">
 
-        <div class="eight wide field">
-            <label>Event Title:</label>
+        <div class="eight wide field" style="color: white">
+            <label>EVENT TITLE:</label>
             <input type="text" placeholder="Add title" id="summary">
         </div>
 
         <div class="eight wide field">
-            <label>Location:</label>
+            <label>LOCATION:</label>
             <input type="text" placeholder="Add location" id="location">
         </div>
 
         <div class="fields">
 
             <div class="field">
-                <label>Sent by:</label>
+                <label>SENT BY:</label>
                 <input type="text" placeholder="Add event creator" id="sentBy">
             </div>
 
@@ -55,23 +69,11 @@
                     <label>No</label>
                 </div>
             </div>
-
-            <!--              <div class="field">-->
-            <!--                <label>All Day?</label>-->
-            <!--                <div class="ui checkbox">-->
-            <!--                  <input type="checkbox" id="allDay">-->
-            <!--                  <label>Yes</label>-->
-            <!--                </div>-->
-            <!--                <div class="ui checkbox">-->
-            <!--                  <input type="checkbox" id="notAllDay">-->
-            <!--                  <label>No</label>-->
-            <!--                </div>-->
-            <!--              </div>-->
-
         </div>
+
         <div class="fields">
             <div class="two wide field">
-                <label>Start Date:</label>
+                <label>START DATE:</label>
             </div>
             <div class="four wide field">
                 <input type="date" id="startDate">
@@ -83,7 +85,7 @@
 
         <div class="fields">
             <div class="two wide field">
-                <label>End Date:</label>
+                <label>END DATE:</label>
             </div>
             <div class="four wide field">
                 <input type="date" id="endDate">
@@ -100,7 +102,7 @@
             <div class="ui form">
                 <div class="inline fields">
                     <div class="two wide field">
-                        <label>Repeat?</label>
+                        <label>REPEAT?</label>
                     </div>
                     <div class="field">
                         <div class="ui radio checkbox">
@@ -138,7 +140,7 @@
             <div class="ui form">
                 <div class="inline fields">
                     <div class="two wide field">
-                        <label>Every Other?</label>
+                        <label>EVERY OTHER?</label>
                     </div>
                     <div class="field">
                         <div class="ui checkbox">
@@ -152,7 +154,7 @@
 
             <div class="fields">
                 <div class="two wide field">
-                    <label>Until:</label>
+                    <label>UNTIL:</label>
                 </div>
                 <div class="four wide field">
                     <input type="date" name="untilDate" id="u_repeat">
@@ -163,7 +165,7 @@
 
 
         <div class="eight wide field">
-            <label>Timezone: (currently, only the user's default timezone is available)</label>
+            <label>TIMEZONE: (currently, only the user's default timezone is available)</label>
             <select id="timezones">
                 <option timeZoneID="Etc/UTC" gmtOffset="" useDaylightTime="" value="">Use your current timezone, or click here to change it.</option>
                 <!--
@@ -257,7 +259,7 @@
 
         <div class="ui form">
             <div class="inline fields">
-                <label>Priority</label>
+                <label>PRIORITY</label>
                 <div class="field">
                     <!-- Low Priority value 0 -->
                     <div class="ui radio checkbox">
@@ -289,18 +291,9 @@
             </div>
         </div>
 
-        <!--        <div class="two wide field">-->
-        <!--          <label> Classification </label>-->
-        <!--          <select id="classification">-->
-        <!--            <option value="1">Public</option>-->
-        <!--            <option value="2">Private</option>-->
-        <!--            <<option value="3">Confidential</option>-->
-        <!--          </select>-->
-        <!--        </div>-->
-
         <div class="ui form">
             <div class="inline fields">
-                <label>Classification</label>
+                <label>CLASSIFICATION</label>
                 <div class="field">
                     <!-- Public -->
                     <div class="ui radio checkbox">
@@ -325,15 +318,20 @@
             </div>
           </div>
 
-          <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
+          <br/>
+<!--          <button class="ui large button" type="submit" id="submit" onClick="submitForm()">-->
+          <button class="button myButton" type="submit" id="submit" onClick="submitForm()">
+            <i class="calendar icon"></i>
+            GENERATE CALENDAR EVENT
+          </button>
 
         </form>
 
-    </div>
+      </div>
     </div>
 
     </form>
-</div>
+  </div>
 </body>
 
 </html>
