@@ -250,7 +250,9 @@
 
         <div class="ui form">
             <div class="inline fields">
-                <label>Priority</label>
+                <div class="two wide field">
+                    <label>Priority</label>
+                </div>
                 <div class="field">
                     <!-- Low Priority value 0 -->
                     <div class="ui radio checkbox">
@@ -293,7 +295,9 @@
 
         <div class="ui form">
             <div class="inline fields">
-                <label>Classification</label>
+                <div class="two wide field">
+                    <label>Classification</label>
+                </div>
                 <div class="field">
                     <!-- Public -->
                     <div class="ui radio checkbox">
@@ -318,7 +322,100 @@
             </div>
         </div>
 
+
+        <!-- RESOURCES --><br>
+        <div class="ui form">
+            <div class="inline fields">
+                <div class="two wide field">
+                    <label>Resources</label>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="CATERING">
+                            <label>CATERING</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="CHAIRS">
+                            <label>CHAIRS</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="COMPUTER PROJECTOR">
+                            <label>COMPUTER PROJECTOR</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="EASEL">
+                            <label>EASEL</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="OVERHEAD PROJECTOR">
+                            <label>OVERHEAD PROJECTOR</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="SPEAKER PHONE">
+                            <label>SPEAKER PHONE</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="TABLE">
+                            <label>TABLE</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="TV">
+                            <label>TV</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="VCR">
+                            <label>VCR</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="VIDEO PHONE">
+                            <label>VIDEO PHONE</label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" name="resources" value="VEHICLE">
+                            <label>VEHICLE</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
+
 
     </form>
 </div>

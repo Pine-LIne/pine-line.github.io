@@ -195,7 +195,7 @@ function createEvent() {
 
     //PRIORITY
     var prioElement = document.getElementsByName('priority'); // fetches radio buttons by name
-    for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
+    for(let i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
         if(prioElement[i].checked)
             var priority = prioElement[i].value;
     }
@@ -204,12 +204,32 @@ function createEvent() {
 
     //CLASSIFICATION
     var classif = document.getElementsByName('classification');
-    for(i = 0; i < classif.length; i++) {
+    for(let i = 0; i < classif.length; i++) {
         if(classif[i].checked)
             var classVal = classif[i].value;
     }
     event = event.concat('\nCLASS:' + classVal);
 
+
+    //RESOURCES
+    var resources = "\nRESOURCES:";
+    var res = "";
+    var resBool = 0;
+    var resData = document.getElementsByName('resources');
+
+    for (let i = 0; i < resData.length; i++) {
+        if(resData[i].checked) {
+            resBool = 1;
+            res = res.concat(`${resData[i].value},`);
+        }
+    }
+
+    res = res.slice(0,-1);
+    resources = resources.concat(res);
+
+    if(resBool == 1) {
+        event = event.concat(resources);
+    }
 
     //EVENT END
     event = event.concat("\nEND:VEVENT" + "\nEND:VCALENDAR");
