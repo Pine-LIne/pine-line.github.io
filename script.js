@@ -144,8 +144,8 @@ function createEvent() {
     //RSVP
     var rsvpVar = document.getElementsByName('rsvp');
     for(i = 0; i < rsvpVar.length; i++) {
-      if(rsvpVar[i].checked)
-        var rsvpVal = rsvpVar[i].value;
+        if(rsvpVar[i].checked)
+            var rsvpVal = rsvpVar[i].value;
     }
     event = event.concat('\nRSVP:' + rsvpVal);
 
@@ -191,13 +191,13 @@ function createEvent() {
         }
         event = event.concat(rrule)
     }
-    
+
 
     //PRIORITY
     var prioElement = document.getElementsByName('priority'); // fetches radio buttons by name
     for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
-      if(prioElement[i].checked)
-        var priority = prioElement[i].value;
+        if(prioElement[i].checked)
+            var priority = prioElement[i].value;
     }
     event = event.concat('\nPRIORITY:' + priority);
 
@@ -205,8 +205,8 @@ function createEvent() {
     //CLASSIFICATION
     var classif = document.getElementsByName('classification');
     for(i = 0; i < classif.length; i++) {
-      if(classif[i].checked)
-        var classVal = classif[i].value;
+        if(classif[i].checked)
+            var classVal = classif[i].value;
     }
     event = event.concat('\nCLASS:' + classVal);
 
@@ -229,5 +229,5 @@ function createFile(data) {
     // saveAs(blob, "event.ics");
     saveAs(blob, `${document.getElementById('summary').value}.ics`);
     // saveAs(blob, document.getElementById('summary').value.ics);
-  
+
 }
