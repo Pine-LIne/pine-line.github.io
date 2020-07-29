@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="style.css">
     <script xmlns="http://www.w3.org/1999/xhtml" async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
     <script src="script.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+    </style>
+
 </head>
 
 <body>
@@ -24,7 +28,7 @@
         <p>Creating and generating a calendar (*.ics) event file using our web app is easy to do. Simply follow the
           written instructions here, or watch the video to get started! <br>
         </p>
-        <ul class="a">
+        <ul class="a mainFont">
           <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
           <li>Step 2: Click the "Generate Calendar Event" button.
             <ul>
@@ -39,19 +43,19 @@
 
 <!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
 
-    <form class="ui form" onsubmit="return false">
+    <form class="ui form mainFont" onsubmit="return false">
 
-        <div class="eight wide field" style="color: white">
+        <div class="eight wide field mainFont">
             <label>EVENT TITLE:</label>
             <input type="text" placeholder="Add title" id="summary">
         </div>
 
-        <div class="eight wide field">
+        <div class="eight wide field mainFont">
             <label>LOCATION:</label>
             <input type="text" placeholder="Add location" id="location">
         </div>
 
-        <div class="fields">
+        <div class="fields mainFont">
 
             <div class="field">
                 <label>SENT BY:</label>
@@ -71,26 +75,26 @@
             </div>
         </div>
 
-        <div class="fields">
+        <div class="fields mainFont">
             <div class="two wide field">
                 <label>START DATE:</label>
             </div>
-            <div class="four wide field">
+            <div class="four wide field mainFont">
                 <input type="date" id="startDate">
             </div>
-            <div class="two wide field">
+            <div class="two wide field mainFont">
                 <input type="time" id="startTime">
             </div>
         </div>
 
         <div class="fields">
-            <div class="two wide field">
+            <div class="two wide field mainFont">
                 <label>END DATE:</label>
             </div>
-            <div class="four wide field">
+            <div class="four wide field mainFont">
                 <input type="date" id="endDate">
             </div>
-            <div class="two wide field">
+            <div class="two wide field mainFont">
                 <input type="time" id="endTime">
             </div>
         </div>
@@ -100,7 +104,7 @@
         <div class="ui container">
 
             <div class="ui form">
-                <div class="inline fields">
+                <div class="inline fields mainFont">
                     <div class="two wide field">
                         <label>REPEAT?</label>
                     </div>
@@ -138,7 +142,7 @@
             </div>
 
             <div class="ui form">
-                <div class="inline fields">
+                <div class="inline fields mainFont">
                     <div class="two wide field">
                         <label>EVERY OTHER?</label>
                     </div>
@@ -153,10 +157,10 @@
 
 
             <div class="fields">
-                <div class="two wide field">
+                <div class="two wide field mainFont">
                     <label>UNTIL:</label>
                 </div>
-                <div class="four wide field">
+                <div class="four wide field mainFont">
                     <input type="date" name="untilDate" id="u_repeat">
                 </div>
             </div>
@@ -164,7 +168,7 @@
         </div>
 
 
-        <div class="eight wide field">
+        <div class="eight wide field mainFont">
             <label>TIMEZONE: (currently, only the user's default timezone is available)</label>
             <select id="timezones">
                 <option timeZoneID="Etc/UTC" gmtOffset="" useDaylightTime="" value="">Use your current timezone, or click here to change it.</option>
@@ -258,7 +262,7 @@
 
 
         <div class="ui form">
-            <div class="inline fields">
+            <div class="inline fields mainFont">
                 <label>PRIORITY</label>
                 <div class="field">
                     <!-- Low Priority value 0 -->
@@ -292,7 +296,7 @@
         </div>
 
         <div class="ui form">
-            <div class="inline fields">
+            <div class="inline fields mainFont">
                 <label>CLASSIFICATION</label>
                 <div class="field">
                     <!-- Public -->

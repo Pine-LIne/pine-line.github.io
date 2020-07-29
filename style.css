@@ -30,11 +30,11 @@ img {
 }
 
 .mainFont {
-  font-family: Comfortaa, Helvetica, sans-serif;
+  font-family: 'Work Sans', 'Open Sans', sans-serif;
   /*font-family: Amiko, Helvetica, sans-serif;*/
-  color: white !important;
-  font-palette: light;
-  font-size: 18px;
+  color: black !important;
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .myButton {
@@ -46,8 +46,8 @@ img {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-family: Comfortaa, sans-serif;
-  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 17px;
 }
 
 .myButton:hover {
@@ -64,5 +64,14 @@ img {
 
 ul.a {
   list-style-type: circle;
-  color: white;
+  color: black;
 }
+
+/*.input[type=text] {*/
+/*  width: 100%;*/
+/*  border-radius: 20px;*/
+/*  padding: 12px 20px;*/
+/*  margin: 8px 0;*/
+/*  box-sizing: border-box;*/
+/*  font-family: Comfortaa, sans-serif;*/
+/*}*/
