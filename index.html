@@ -12,425 +12,426 @@
     <script xmlns="http://www.w3.org/1999/xhtml" async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
     <script src="script.js"></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
     </style>
 
 </head>
 
 <body>
 
-    <div class="gradient-background">
-      <div class="ui container mainFont">
-      <br/>
-      <img src="cal-logo-gradient1.png" width = "700">
-      <br/>
-      <h1 class="ui header mainFont">INSTRUCTIONS:</h1>
+<div class="gradient-background">
+    <div class="ui container mainFont">
+        <br/>
+        <img src="cal-logo-gradient1.png" width = "700">
+        <br/>
+        <h1 class="ui header mainFont">INSTRUCTIONS:</h1>
         <p>Creating and generating a calendar (*.ics) event file using our web app is easy to do. Simply follow the
-          written instructions here, or watch the video to get started! <br>
+            written instructions here, or watch the video to get started! <br>
         </p>
         <ul class="a mainFont">
-          <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
-          <li>Step 2: Click the "Generate Calendar Event" button.
-            <ul>
-              <li>A generated *.ics file will download to your downloads folder.</li>
-              <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
-            </ul>
-          </li>
-          <li>Step 3: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
+            <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
+            <li>Step 2: Click the "Generate Calendar Event" button.
+                <ul>
+                    <li>A generated *.ics file will download to your downloads folder.</li>
+                    <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
+                </ul>
+            </li>
+            <li>Step 3: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
         </ul>
-<!--      <div class="ui divider white "></div>-->
-      <br><hr><br>
-
-<!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
-
-    <form class="ui form mainFont" onsubmit="return false">
-
-        <div class="eight wide field mainFont">
-            <label>EVENT TITLE:</label>
-            <input type="text" placeholder="Add title" id="summary">
-        </div>
-
-        <div class="eight wide field mainFont">
-            <label>LOCATION:</label>
-            <input type="text" placeholder="Add location" id="location">
-        </div>
-
-        <div class="fields mainFont">
-
-            <div class="field">
-                <label>SENT BY:</label>
-                <input type="text" placeholder="Add event creator" id="sentBy">
-            </div>
-
-            <div class="field">
-                <label>RSVP?</label>
-                <div class="ui radio checkbox">
-                    <input type="radio" name="rsvp" value="TRUE" checked="checked" id="rsvptrue">
-                    <label>Yes</label>
-                </div>
-                <div class="ui radio checkbox">
-                    <input type="radio" name="rsvp" value="FALSE" id="rsvpfalse">
-                    <label>No</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="fields mainFont">
-            <div class="two wide field">
-                <label>START DATE:</label>
-            </div>
-            <div class="four wide field mainFont">
-                <input type="date" id="startDate">
-            </div>
-            <div class="two wide field mainFont">
-                <input type="time" id="startTime">
-            </div>
-        </div>
-
-        <div class="fields">
-            <div class="two wide field mainFont">
-                <label>END DATE:</label>
-            </div>
-            <div class="four wide field mainFont">
-                <input type="date" id="endDate">
-            </div>
-            <div class="two wide field mainFont">
-                <input type="time" id="endTime">
-            </div>
-        </div>
-
+        <!--      <div class="ui divider white "></div>-->
         <br><hr><br>
 
-        <div class="ui container">
+        <!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
 
-            <div class="ui form">
-                <div class="inline fields mainFont">
-                    <div class="two wide field">
-                        <label>REPEAT?</label>
+        <form class="ui form mainFont" onsubmit="return false">
+
+            <div class="eight wide field mainFont">
+                <label>EVENT TITLE:</label>
+                <input type="text" placeholder="Add title" id="summary">
+            </div>
+
+            <div class="eight wide field mainFont">
+                <label>LOCATION:</label>
+                <input type="text" placeholder="Add location" id="location">
+            </div>
+
+            <div class="fields mainFont">
+
+                <div class="field">
+                    <label>SENT BY:</label>
+                    <input type="text" placeholder="Add event creator" id="sentBy">
+                </div>
+
+                <div class="field">
+                    <label>RSVP?</label>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="rsvp" value="TRUE" checked="checked" id="rsvptrue">
+                        <label>Yes</label>
                     </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="recurrence" value="" checked="checked" id="n_recur">
-                            <label>Never</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="recurrence" value="DAILY" id="d_recur">
-                            <label>Every Day</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="recurrence" value="WEEKLY" id="w_recur">
-                            <label>Every Week</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="recurrence" value="MONTHLY" id="m_recur">
-                            <label>Every Month</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="recurrence" value="YEARLY" id="y_recur">
-                            <label>Every Year</label>
-                        </div>
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="rsvp" value="FALSE" id="rsvpfalse">
+                        <label>No</label>
                     </div>
                 </div>
             </div>
 
-            <div class="ui form">
-                <div class="inline fields mainFont">
-                    <div class="two wide field">
-                        <label>EVERY OTHER?</label>
-                    </div>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="interval" value="2" id="i_repeat">
-                            <label>Yes</label>
-                        </div>
-                    </div>
+            <div class="fields mainFont">
+                <div class="two wide field">
+                    <label>START DATE:</label>
+                </div>
+                <div class="four wide field mainFont">
+                    <input type="date" id="startDate">
+                </div>
+                <div class="two wide field mainFont">
+                    <input type="time" id="startTime">
                 </div>
             </div>
-
 
             <div class="fields">
                 <div class="two wide field mainFont">
-                    <label>UNTIL:</label>
+                    <label>END DATE:</label>
                 </div>
                 <div class="four wide field mainFont">
-                    <input type="date" name="untilDate" id="u_repeat">
+                    <input type="date" id="endDate">
+                </div>
+                <div class="two wide field mainFont">
+                    <input type="time" id="endTime">
                 </div>
             </div>
 
-        </div>
+            <br><hr><br>
 
+            <div class="ui container">
 
-        <div class="eight wide field mainFont">
-            <label>TIMEZONE: (currently, only the user's default timezone is available)</label>
-            <select id="timezones">
-                <option timeZoneID="Etc/UTC" gmtOffset="" useDaylightTime="" value="">Use your current timezone, or click here to change it.</option>
-                <!--
-                    <option timeZoneID="Etc/GMT+12" gmtOffset="-1200" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
-                    <option timeZoneID="Etc/GMT+11" gmtOffset="-1100" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
-                    <option timeZoneID="Pacific/Honolulu" gmtOffset="-1000" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
-                    <option timeZoneID="America/Anchorage" gmtOffset="-0900" useDaylightTime="1" value="-9">(GMT-09:00) Alaska</option>
-                    <option timeZoneID="America/Los_Angeles" gmtOffset="-0800" useDaylightTime="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
-                    <option timeZoneID="America/Los_Angeles" gmtOffset="-0800" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
-                    <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="0" value="-7">(GMT-07:00) Arizona</option>
-                    <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
-                    <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
-                    <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="0" value="-6">(GMT-06:00) Central America</option>
-                    <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="1" value="-6">(GMT-06:00) Central Time (US & Canada)</option>
-                    <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="1" value="-6">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
-                    <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="0" value="-6">(GMT-06:00) Saskatchewan</option>
-                    <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="0" value="-5">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
-                    <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="1" value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
-                    <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="1" value="-5">(GMT-05:00) Indiana (East)</option>
-                    <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="1" value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
-                    <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="0" value="-4">(GMT-04:00) Caracas, La Paz</option>
-                    <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="0" value="-4">(GMT-04:00) Manaus</option>
-                    <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="1" value="-4">(GMT-04:00) Santiago</option>
-                    <option timeZoneID="America/St_Johns" gmtOffset="-0330" useDaylightTime="1" value="-3.5">(GMT-03:30) Newfoundland</option>
-                    <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Brasilia</option>
-                    <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="0" value="-3">(GMT-03:00) Buenos Aires, Georgetown</option>
-                    <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Greenland</option>
-                    <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Montevideo</option>
-                    <option timeZoneID="Atlantic/South_Georgia" gmtOffset="-0200" useDaylightTime="1" value="-2">(GMT-02:00) Mid-Atlantic</option>
-                    <option timeZoneID="Atlantic/Cape_Verde" gmtOffset="-0100" useDaylightTime="0" value="-1">(GMT-01:00) Cape Verde Is.</option>
-                    <option timeZoneID="Atlantic/Cape_Verde" gmtOffset="-0100" useDaylightTime="1" value="-1">(GMT-01:00) Azores</option>
-                    <option timeZoneID="Europe/London" gmtOffset="+0000" useDaylightTime="0" value="0">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
-                    <option timeZoneID="Europe/London" gmtOffset="+0000" useDaylightTime="1" value="0">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
-                    <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
-                    <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
-                    <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
-                    <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
-                    <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) West Central Africa</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Amman</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Athens, Bucharest, Istanbul</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Beirut</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Cairo</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="0" value="2">(GMT+02:00) Harare, Pretoria</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Jerusalem</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Minsk</option>
-                    <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Windhoek</option>
-                    <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
-                    <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="1" value="3">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
-                    <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Nairobi</option>
-                    <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Tbilisi</option>
-                    <option timeZoneID="Asia/Tehran" gmtOffset="+0330" useDaylightTime="1" value="3.5">(GMT+03:30) Tehran</option>
-                    <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="0" value="4">(GMT+04:00) Abu Dhabi, Muscat</option>
-                    <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="1" value="4">(GMT+04:00) Baku</option>
-                    <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="1" value="4">(GMT+04:00) Yerevan</option>
-                    <option timeZoneID="Asia/Kabul" gmtOffset="+0430" useDaylightTime="0" value="4.5">(GMT+04:30) Kabul</option>
-                    <option timeZoneID="Asia/Karachi" gmtOffset="+0500" useDaylightTime="1" value="5">(GMT+05:00) Yekaterinburg</option>
-                    <option timeZoneID="Asia/Karachi" gmtOffset="+0500" useDaylightTime="0" value="5">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
-                    <option timeZoneID="Asia/Kolkata" gmtOffset="+0530" useDaylightTime="0" value="5.5">(GMT+05:30) Sri Jayawardenapura</option>
-                    <option timeZoneID="Asia/Kolkata" gmtOffset="+0530" useDaylightTime="0" value="5.5">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
-                    <option timeZoneID="Asia/Kathmandu" gmtOffset="+0545" useDaylightTime="0" value="5.75">(GMT+05:45) Kathmandu</option>
-                    <option timeZoneID="Asia/Dhaka" gmtOffset="+0600" useDaylightTime="1" value="6">(GMT+06:00) Almaty, Novosibirsk</option>
-                    <option timeZoneID="Asia/Dhaka" gmtOffset="+0600" useDaylightTime="0" value="6">(GMT+06:00) Astana, Dhaka</option>
-                    <option timeZoneID="Asia/Yangon" gmtOffset="+0630" useDaylightTime="0" value="6.5">(GMT+06:30) Yangon (Rangoon)</option>
-                    <option timeZoneID="Asia/Bangkok" gmtOffset="+0700" useDaylightTime="0" value="7">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
-                    <option timeZoneID="Asia/Bangkok" gmtOffset="+0700" useDaylightTime="1" value="7">(GMT+07:00) Krasnoyarsk</option>
-                    <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
-                    <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Kuala Lumpur, Singapore</option>
-                    <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
-                    <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Perth</option>
-                    <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Taipei</option>
-                    <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="0" value="9">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
-                    <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="0" value="9">(GMT+09:00) Seoul</option>
-                    <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="1" value="9">(GMT+09:00) Yakutsk</option>
-                    <option timeZoneID="Australia/Adelaide" gmtOffset="+0930" useDaylightTime="0" value="9.5">(GMT+09:30) Adelaide</option>
-                    <option timeZoneID="Australia/Adelaide" gmtOffset="+0930" useDaylightTime="0" value="9.5">(GMT+09:30) Darwin</option>
-                    <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="0" value="10">(GMT+10:00) Brisbane</option>
-                    <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Canberra, Melbourne, Sydney</option>
-                    <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Hobart</option>
-                    <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="0" value="10">(GMT+10:00) Guam, Port Moresby</option>
-                    <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Vladivostok</option>
-                    <option timeZoneID="Pacific/Bougainville" gmtOffset="+1100" useDaylightTime="1" value="11">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
-                    <option timeZoneID="Pacific/Auckland" gmtOffset="+1200" useDaylightTime="1" value="12">(GMT+12:00) Auckland, Wellington</option>
-                    <option timeZoneID="Pacific/Kamchatka" gmtOffset="+1200" useDaylightTime="0" value="12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
-                    <option timeZoneID="Etc/GMT-13" gmtOffset="+1300" useDaylightTime="0" value="13">(GMT+13:00) Nuku'alofa</option>
-                    <option timeZoneID="Pacific/Kiritimati" gmtOffset="+1300" useDaylightTime="0" value="13">(GMT+13:00) Kiritimati</option>
-!-->
-            </select>
-        </div>
-
-
-        <div class="ui form">
-            <div class="inline fields mainFont">
-                <div class="two wide field">
-                <label>PRIORITY</label>
-                </div>
-                <div class="field">
-                    <!-- Low Priority value 0 -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="priority" value="0" checked="checked" id="prioritynone">
-                        <label>None</label>
+                <div class="ui form">
+                    <div class="inline fields mainFont">
+                        <div class="two wide field">
+                            <label>REPEAT?</label>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="" checked="checked" id="n_recur">
+                                <label>Never</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="DAILY" id="d_recur">
+                                <label>Every Day</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="WEEKLY" id="w_recur">
+                                <label>Every Week</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="MONTHLY" id="m_recur">
+                                <label>Every Month</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="YEARLY" id="y_recur">
+                                <label>Every Year</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <!-- Low Priority value 9 -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="priority" value="9" id="prioritylow">
-                        <label>Low</label>
+
+                <div class="ui form">
+                    <div class="inline fields mainFont">
+                        <div class="two wide field">
+                            <label>EVERY OTHER?</label>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="interval" value="2" id="i_repeat">
+                                <label>Yes</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <!-- Medium Priority value 5 -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="priority" value="5" id="prioritymed">
-                        <label>Medium</label>
+
+
+                <div class="fields">
+                    <div class="two wide field mainFont">
+                        <label>UNTIL:</label>
+                    </div>
+                    <div class="four wide field mainFont">
+                        <input type="date" name="untilDate" id="u_repeat">
                     </div>
                 </div>
-                <div class="field">
-                    <!-- High Priority value 1 -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="priority" value="1" id="priorityhigh">
-                        <label>High</label>
-                    </div>
-                </div>
+
             </div>
-        </div>
 
-        <div class="ui form">
-            <div class="inline fields mainFont">
-                <div class="two wide field">
-                <label>CLASSIFICATION</label>
-                </div>
 
-                <div class="field">
-                    <!-- Public -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="classification" value="PUBLIC" checked="checked" id="classpub">
-                        <label>Public</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <!-- Private -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="classification" value="PRIVATE" id="classpriv">
-                        <label>Private</label>
-                    </div>
-                </div>
-                <div class="field">
-                    <!-- Confidential -->
-                    <div class="ui radio checkbox">
-                        <input type="radio" name="classification" value="CONFIDENTIAL" id="classconf">
-                        <label>Confidential</label>
-                    </div>
-                </div>
+            <div class="eight wide field mainFont">
+                <label>TIMEZONE: (currently, only the user's default timezone is available)</label>
+                <select id="timezones">
+                    <option timeZoneID="Etc/UTC" gmtOffset="" useDaylightTime="" value="">Use your current timezone, or click here to change it.</option>
+                    <!--
+                        <option timeZoneID="Etc/GMT+12" gmtOffset="-1200" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
+                        <option timeZoneID="Etc/GMT+11" gmtOffset="-1100" useDaylightTime="0" value="-11">(GMT-11:00) Midway Island, Samoa</option>
+                        <option timeZoneID="Pacific/Honolulu" gmtOffset="-1000" useDaylightTime="0" value="-10">(GMT-10:00) Hawaii</option>
+                        <option timeZoneID="America/Anchorage" gmtOffset="-0900" useDaylightTime="1" value="-9">(GMT-09:00) Alaska</option>
+                        <option timeZoneID="America/Los_Angeles" gmtOffset="-0800" useDaylightTime="1" value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+                        <option timeZoneID="America/Los_Angeles" gmtOffset="-0800" useDaylightTime="1" value="-8">(GMT-08:00) Tijuana, Baja California</option>
+                        <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="0" value="-7">(GMT-07:00) Arizona</option>
+                        <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="1" value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                        <option timeZoneID="America/Denver" gmtOffset="-0700" useDaylightTime="1" value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+                        <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="0" value="-6">(GMT-06:00) Central America</option>
+                        <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="1" value="-6">(GMT-06:00) Central Time (US & Canada)</option>
+                        <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="1" value="-6">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+                        <option timeZoneID="America/Chicago" gmtOffset="-0600" useDaylightTime="0" value="-6">(GMT-06:00) Saskatchewan</option>
+                        <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="0" value="-5">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+                        <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="1" value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
+                        <option timeZoneID="America/New_York" gmtOffset="-0500" useDaylightTime="1" value="-5">(GMT-05:00) Indiana (East)</option>
+                        <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="1" value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
+                        <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="0" value="-4">(GMT-04:00) Caracas, La Paz</option>
+                        <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="0" value="-4">(GMT-04:00) Manaus</option>
+                        <option timeZoneID="America/Puerto_Rico" gmtOffset="-0400" useDaylightTime="1" value="-4">(GMT-04:00) Santiago</option>
+                        <option timeZoneID="America/St_Johns" gmtOffset="-0330" useDaylightTime="1" value="-3.5">(GMT-03:30) Newfoundland</option>
+                        <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Brasilia</option>
+                        <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="0" value="-3">(GMT-03:00) Buenos Aires, Georgetown</option>
+                        <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Greenland</option>
+                        <option timeZoneID="America/Sao_Paulo" gmtOffset="-0300" useDaylightTime="1" value="-3">(GMT-03:00) Montevideo</option>
+                        <option timeZoneID="Atlantic/South_Georgia" gmtOffset="-0200" useDaylightTime="1" value="-2">(GMT-02:00) Mid-Atlantic</option>
+                        <option timeZoneID="Atlantic/Cape_Verde" gmtOffset="-0100" useDaylightTime="0" value="-1">(GMT-01:00) Cape Verde Is.</option>
+                        <option timeZoneID="Atlantic/Cape_Verde" gmtOffset="-0100" useDaylightTime="1" value="-1">(GMT-01:00) Azores</option>
+                        <option timeZoneID="Europe/London" gmtOffset="+0000" useDaylightTime="0" value="0">(GMT+00:00) Casablanca, Monrovia, Reykjavik</option>
+                        <option timeZoneID="Europe/London" gmtOffset="+0000" useDaylightTime="1" value="0">(GMT+00:00) Greenwich Mean Time : Dublin, Edinburgh, Lisbon, London</option>
+                        <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna</option>
+                        <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague</option>
+                        <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Brussels, Copenhagen, Madrid, Paris</option>
+                        <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) Sarajevo, Skopje, Warsaw, Zagreb</option>
+                        <option timeZoneID="Europe/Rome" gmtOffset="+0100" useDaylightTime="1" value="1">(GMT+01:00) West Central Africa</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Amman</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Athens, Bucharest, Istanbul</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Beirut</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Cairo</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="0" value="2">(GMT+02:00) Harare, Pretoria</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Jerusalem</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Minsk</option>
+                        <option timeZoneID="Asia/Jerusalem" gmtOffset="+0200" useDaylightTime="1" value="2">(GMT+02:00) Windhoek</option>
+                        <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Kuwait, Riyadh, Baghdad</option>
+                        <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="1" value="3">(GMT+03:00) Moscow, St. Petersburg, Volgograd</option>
+                        <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Nairobi</option>
+                        <option timeZoneID="Europe/Moscow" gmtOffset="+0300" useDaylightTime="0" value="3">(GMT+03:00) Tbilisi</option>
+                        <option timeZoneID="Asia/Tehran" gmtOffset="+0330" useDaylightTime="1" value="3.5">(GMT+03:30) Tehran</option>
+                        <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="0" value="4">(GMT+04:00) Abu Dhabi, Muscat</option>
+                        <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="1" value="4">(GMT+04:00) Baku</option>
+                        <option timeZoneID="Asia/Dubai" gmtOffset="+0400" useDaylightTime="1" value="4">(GMT+04:00) Yerevan</option>
+                        <option timeZoneID="Asia/Kabul" gmtOffset="+0430" useDaylightTime="0" value="4.5">(GMT+04:30) Kabul</option>
+                        <option timeZoneID="Asia/Karachi" gmtOffset="+0500" useDaylightTime="1" value="5">(GMT+05:00) Yekaterinburg</option>
+                        <option timeZoneID="Asia/Karachi" gmtOffset="+0500" useDaylightTime="0" value="5">(GMT+05:00) Islamabad, Karachi, Tashkent</option>
+                        <option timeZoneID="Asia/Kolkata" gmtOffset="+0530" useDaylightTime="0" value="5.5">(GMT+05:30) Sri Jayawardenapura</option>
+                        <option timeZoneID="Asia/Kolkata" gmtOffset="+0530" useDaylightTime="0" value="5.5">(GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+                        <option timeZoneID="Asia/Kathmandu" gmtOffset="+0545" useDaylightTime="0" value="5.75">(GMT+05:45) Kathmandu</option>
+                        <option timeZoneID="Asia/Dhaka" gmtOffset="+0600" useDaylightTime="1" value="6">(GMT+06:00) Almaty, Novosibirsk</option>
+                        <option timeZoneID="Asia/Dhaka" gmtOffset="+0600" useDaylightTime="0" value="6">(GMT+06:00) Astana, Dhaka</option>
+                        <option timeZoneID="Asia/Yangon" gmtOffset="+0630" useDaylightTime="0" value="6.5">(GMT+06:30) Yangon (Rangoon)</option>
+                        <option timeZoneID="Asia/Bangkok" gmtOffset="+0700" useDaylightTime="0" value="7">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                        <option timeZoneID="Asia/Bangkok" gmtOffset="+0700" useDaylightTime="1" value="7">(GMT+07:00) Krasnoyarsk</option>
+                        <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi</option>
+                        <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Kuala Lumpur, Singapore</option>
+                        <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Irkutsk, Ulaan Bataar</option>
+                        <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Perth</option>
+                        <option timeZoneID="Asia/Hong_Kong" gmtOffset="+0800" useDaylightTime="0" value="8">(GMT+08:00) Taipei</option>
+                        <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="0" value="9">(GMT+09:00) Osaka, Sapporo, Tokyo</option>
+                        <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="0" value="9">(GMT+09:00) Seoul</option>
+                        <option timeZoneID="Asia/Tokyo" gmtOffset="+0900" useDaylightTime="1" value="9">(GMT+09:00) Yakutsk</option>
+                        <option timeZoneID="Australia/Adelaide" gmtOffset="+0930" useDaylightTime="0" value="9.5">(GMT+09:30) Adelaide</option>
+                        <option timeZoneID="Australia/Adelaide" gmtOffset="+0930" useDaylightTime="0" value="9.5">(GMT+09:30) Darwin</option>
+                        <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="0" value="10">(GMT+10:00) Brisbane</option>
+                        <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Canberra, Melbourne, Sydney</option>
+                        <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Hobart</option>
+                        <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="0" value="10">(GMT+10:00) Guam, Port Moresby</option>
+                        <option timeZoneID="Australia/Sydney" gmtOffset="+1000" useDaylightTime="1" value="10">(GMT+10:00) Vladivostok</option>
+                        <option timeZoneID="Pacific/Bougainville" gmtOffset="+1100" useDaylightTime="1" value="11">(GMT+11:00) Magadan, Solomon Is., New Caledonia</option>
+                        <option timeZoneID="Pacific/Auckland" gmtOffset="+1200" useDaylightTime="1" value="12">(GMT+12:00) Auckland, Wellington</option>
+                        <option timeZoneID="Pacific/Kamchatka" gmtOffset="+1200" useDaylightTime="0" value="12">(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
+                        <option timeZoneID="Etc/GMT-13" gmtOffset="+1300" useDaylightTime="0" value="13">(GMT+13:00) Nuku'alofa</option>
+                        <option timeZoneID="Pacific/Kiritimati" gmtOffset="+1300" useDaylightTime="0" value="13">(GMT+13:00) Kiritimati</option>
+    !-->
+                </select>
             </div>
-          </div>
 
 
-        <!-- RESOURCES --><br>
-        <div class="ui form">
-            <div class="inline fields mainFont">
-                <div class="two wide field">
-                    <label>RESOURCES</label>
-                </div>
-                <div class="row">
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>PRIORITY</label>
+                    </div>
                     <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="CATERING">
-                            <label>Catering</label>
+                        <!-- Low Priority value 0 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="0" checked="checked" id="prioritynone">
+                            <label>None</label>
                         </div>
                     </div>
-                    <br>
                     <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="CHAIRS">
-                            <label>Chairs</label>
+                        <!-- Low Priority value 9 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="9" id="prioritylow">
+                            <label>Low</label>
                         </div>
                     </div>
-                    <br>
                     <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="COMPUTER PROJECTOR">
-                            <label>Computer Projector</label>
+                        <!-- Medium Priority value 5 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="5" id="prioritymed">
+                            <label>Medium</label>
                         </div>
                     </div>
-                    <br>
                     <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="EASEL">
-                            <label>Easel</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="OVERHEAD PROJECTOR">
-                            <label>Overhead Projector</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="SPEAKER PHONE">
-                            <label>Speaker Phone</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="TABLE">
-                            <label>Table</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="TV">
-                            <label>TV</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="VCR">
-                            <label>VCR</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="VIDEO PHONE">
-                            <label>Video Phone</label>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="resources" value="VEHICLE">
-                            <label>Vehicle</label>
+                        <!-- High Priority value 1 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="1" id="priorityhigh">
+                            <label>High</label>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-      <br/>
-      <br/>
 
-      <button class="button myButton" type="submit" id="submit" onClick="submitForm()">
-        <i class="calendar icon"></i>
-        GENERATE CALENDAR EVENT
-      </button>
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>CLASSIFICATION</label>
+                    </div>
 
-<!--    </form>-->
-<!--        <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>-->
+                    <div class="field">
+                        <!-- Public -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="PUBLIC" checked="checked" id="classpub">
+                            <label>Public</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Private -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="PRIVATE" id="classpriv">
+                            <label>Private</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Confidential -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="CONFIDENTIAL" id="classconf">
+                            <label>Confidential</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    </form>
-  </div>
+            <!-- RESOURCES --><br>
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>RESOURCES</label>
+                    </div>
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="CATERING">
+                                <label>Catering</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="CHAIRS">
+                                <label>Chairs</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="COMPUTER PROJECTOR">
+                                <label>Computer Projector</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="EASEL">
+                                <label>Easel</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="OVERHEAD PROJECTOR">
+                                <label>Overhead Projector</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="SPEAKER PHONE">
+                                <label>Speaker Phone</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="TABLE">
+                                <label>Table</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="TV">
+                                <label>TV</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VCR">
+                                <label>VCR</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VIDEO PHONE">
+                                <label>Video Phone</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VEHICLE">
+                                <label>Vehicle</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <button class="button myButton" type="submit" id="submit" onClick="submitForm()">
+                <i class="calendar icon"></i>
+                GENERATE CALENDAR EVENT
+            </button>
+
+            <!--    </form>-->
+            <!--        <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>-->
+
+
+        </form>
+    </div>
+</div>
 </body>
 
 </html>
