@@ -15,7 +15,7 @@ function createDTStamp(date) {
     return DTStamp;
 }
 
-//validation goes here
+//FORM VALIDATION
 function submitForm() {
 
     const summary = document.getElementById('summary').value;
@@ -42,6 +42,8 @@ function submitForm() {
 
 }
 
+
+//EVENT CREATOR
 function createEvent() {
 
     const date = new Date()
