@@ -98,10 +98,9 @@ function createEvent() {
             }
         }
 
-    } /*
-
+    }
+    /*
         else {
-
             tzOffsetFrom = tzSelect.options[tzSelect.selectedIndex].getAttribute('gmtOffset');
 
             if (tzSelect.options[tzSelect.selectedIndex].getAttribute('useDaylightTime') == "1") {
@@ -109,7 +108,8 @@ function createEvent() {
             } else {
                 tzOffsetTo = tzOffsetFrom;
         }
-    } */
+    }
+    */
 
     event = event.concat(`\nTZID:${tzid}`);
 
