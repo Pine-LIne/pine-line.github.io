@@ -31,7 +31,7 @@ img {
 
 .mainFont {
   font-family: 'Work Sans', 'Open Sans', sans-serif;
-  color: whitesmoke !important;
+  color: white !important;
   font-size: 17px;
   line-height: 1.6;
 }
@@ -54,10 +54,30 @@ img {
   /*background-color: #f3ba87;*/
   background-color: #eeb4b3;
 }
+
 /*.myButton:active {*/
 /*  position:relative;*/
 /*  top:1px;*/
 /*}*/
+
+.myButton2 {
+  /*background-color: #eeb4b3;*/
+  background-color:#9CCC65;
+  border-radius: 28px;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+}
+
+.myButton2:hover {
+  /*background-color: #ffb700;*/
+  background-color: #23A6D5;
+}
 
 .button2 {background-color: #ffb700;}
 

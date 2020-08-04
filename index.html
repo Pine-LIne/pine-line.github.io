@@ -26,22 +26,26 @@
         <br/>
         <h1 class="ui header mainFont">INSTRUCTIONS:</h1>
         <p>Creating and generating a calendar (*.ics) event file using our web app is easy to do. Simply follow the
-            written instructions here, or watch the video to get started! <br>
+            written instructions here! <br>
         </p>
         <ul class="a mainFont">
             <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
-            <li>Step 2: Click the "Generate Calendar Event" button.
-                <ul>
-                    <li>A generated *.ics file will download to your downloads folder.</li>
-                    <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
-                </ul>
+            <li>Step 2: To generate your geolocation coordinates:
+              <ul>
+                <li>Make sure all the fields above it are filled incorrectly.</li>
+                <li>Click the "Generate Geolocation Coordinates" button.</li>
+                <li>Wait a few seconds for the coordinates to generate; they will display right below the button.</li>
+              </ul>
             </li>
-            <li>Step 3: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
+            <li>Step 3: Click the "Generate Calendar Event" button.
+              <ul>
+                <li>A generated *.ics file will download to your downloads folder.</li>
+                <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
+              </ul>
+            <li>Step 4: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
         </ul>
         <!--      <div class="ui divider white "></div>-->
         <br><hr><br>
-
-        <!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
 
         <form class="ui form mainFont" onsubmit="return false">
 
@@ -99,10 +103,35 @@
                 </div>
             </div>
 
+            <!-- GEOLOCATION -->
+            <div class="eight wide field mainFont">
+            <br/>
+            <p style="color:black;">CLICK THE BUTTON BELOW TO GET YOUR GEOGRAPHIC LOCATION.</p>
+            <button class ="button myButton2" onclick="getLocation()">
+              <i class="map marker alternate icon"></i>
+              GENERATE GEOLOCATION COORDINATES
+            </button>
+            <p id="geoLoc"></p>
+            <script>
+             var x = document.getElementById("geoLoc");
+              function getLocation() {
+               if (navigator.geolocation) {
+                 navigator.geolocation.getCurrentPosition(showPosition);
+               } else {
+                  x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+              }
+
+              function showPosition(position) {
+                x.innerHTML = "<br>Latitude: " + position.coords.latitude +
+                    ";  Longitude: " + position.coords.longitude;
+              }
+            </script>
+            </div>
+
             <br><hr><br>
 
             <div class="ui container">
-
                 <div class="ui form">
                     <div class="inline fields mainFont">
                         <div class="two wide field">
