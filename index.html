@@ -4,7 +4,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Team Pine Line!</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Team Pine Line Calendar Event Generator!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
@@ -14,10 +15,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <body>
+
+
 
 <div class="gradient-background">
     <div class="ui container mainFont">
@@ -54,9 +58,30 @@
                 <input type="text" placeholder="Add title" id="summary" required>
             </div>
 
+
+
             <div class="eight wide field mainFont">
                 <label>LOCATION:</label>
-                <input type="text" placeholder="Add location" id="location">
+<!--                <input type="text" placeholder="Add location" id="location">-->
+<!--              <div class="container-fluid">-->
+<!--                <div class="row">-->
+<!--                  <div class="col">-->
+<!--                    <h1 class="display-4">My Map</h1>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="row mb-2">-->
+<!--                  <div class="col">-->
+<!--                    <p>Location</p>-->
+                    <input class="form-control" id="location" type="text" placeholder="Add location..." />
+<!--                  </div>-->
+<!--                </div>-->
+              <br>
+                <div class="row">
+                  <div class="col">
+                    <div id="map"></div>
+                  </div>
+                </div>
+<!--              </div>-->
             </div>
 
             <div class="fields mainFont">
@@ -455,10 +480,22 @@
             <!--    </form>-->
             <!--        <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>-->
 
+          <br/>
 
         </form>
     </div>
 </div>
+
+<!-- Bootstrap scripts. -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<!-- Google Maps scripts. -->
+<script src="script.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_aFphEgiftIH5Du4ZWGFOS3B3ylcD8lg&callback=createMap&libraries=places" async defer></script>
+
 </body>
 
 </html>

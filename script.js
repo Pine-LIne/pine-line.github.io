@@ -1,3 +1,54 @@
+var map;
+
+//MAP LOCATION
+function createMap () {
+  var options = {
+    center: { lat: 64.133, lng: -21.922 },
+    zoom: 7
+  };
+
+  map = new google.maps.Map(document.getElementById('map'), options);
+
+  var input = document.getElementById('location');
+  var searchBox = new google.maps.places.SearchBox(input);
+
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+
+  searchBox.addListener('places_changed', function () {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0)
+      return;
+
+    markers.forEach(function (m) { m.setMap(null); });
+    markers = [];
+
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(p) {
+      if (!p.geometry)
+        return;
+
+      markers.push(new google.maps.Marker({
+        map: map,
+        title: p.name,
+        position: p.geometry.location
+      }));
+
+      if (p.geometry.viewport)
+        bounds.union(p.geometry.viewport);
+      else
+        bounds.extend(p.geometry.location);
+    });
+
+    map.fitBounds(bounds);
+  });
+}
+
+
 //data formatter, adapted from: https://codereview.stackexchange.com/questions/184459/getting-the-date-on-yyyymmdd-format
 function createDTStamp(date) {
     let x = date;

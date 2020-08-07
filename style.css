@@ -94,3 +94,8 @@ ul.a {
 /*  box-sizing: border-box;*/
 /*  font-family: Comfortaa, sans-serif;*/
 /*}*/
+
+#map {
+  height: 500px;
+  width: 500px;
+}
