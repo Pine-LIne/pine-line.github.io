@@ -3,6 +3,10 @@
   width: 500px;
 }
 
+/*#map * {*/
+/*  overflow:visible;*/
+/*}*/
+
 img {
   width: 100%;
   height: auto;
