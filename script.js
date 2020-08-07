@@ -1,6 +1,5 @@
-var map;
-
 //MAP LOCATION
+var map;
 function createMap () {
   var options = {
     center: { lat: 64.133, lng: -21.922 },

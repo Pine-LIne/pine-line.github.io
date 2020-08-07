@@ -1,3 +1,8 @@
+#map {
+  height: 500px;
+  width: 500px;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -95,7 +100,3 @@ ul.a {
 /*  font-family: Comfortaa, sans-serif;*/
 /*}*/
 
-#map {
-  height: 500px;
-  width: 500px;
-}
