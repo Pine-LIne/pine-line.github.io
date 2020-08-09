@@ -51,7 +51,8 @@ function createEvent() {
     let event = "BEGIN:VCALENDAR" +
         "\nVERSION:2.0" +
         "\nPRODID:Team-Pine-Line" +
-        "\nCALSCALE:GREGORIAN";
+        "\nCALSCALE:GREGORIAN" +
+        "\nBEGIN:VEVENT";
 
 
 
@@ -125,11 +126,7 @@ function createEvent() {
     event = event.concat("\nEND:STANDARD");
     event = event.concat("\nEND:VTIMEZONE");
     */
-
-    //EVENT START
-    event = event.concat("\nBEGIN:VEVENT");
-
-
+    
     //DTSTAMP
     const DTStamp = createDTStamp(date);
     console.log(DTStamp);
