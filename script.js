@@ -15,9 +15,10 @@ function createDTStamp(date) {
     return DTStamp;
 }
 
-//validation goes here
+//FORM VALIDATION
 function submitForm() {
 
+    const summary = document.getElementById('summary').value;
     const startDate = document.getElementById('startDate').value;//.replace(/-/g,'');
     const startTime = document.getElementById('startTime').value;//.replace(':','');
     const endDate = document.getElementById('endDate').value;//.replace(/-/g,'');
@@ -25,13 +26,24 @@ function submitForm() {
 
     console.log(startDate+startTime);
     console.log(endDate+endTime);
-    if (startDate+startTime <= endDate+endTime) {
-        createFile(createEvent());
-    } else {
+
+    if (summary == "") {
+        alert('Events must have a title.')
+    }
+    else if (startDate == "" || endDate == "") {
+        alert(`Events must be created with a START time and an END time.`);
+    }
+    else if (startDate+startTime >= endDate+endTime) {
         alert(`Error: ${endTime} on ${endDate} comes before ${startTime} on ${startDate}`);
     }
+    else {
+        createFile(createEvent());
+    }
+
 }
 
+
+//EVENT CREATOR
 function createEvent() {
 
     const date = new Date()
@@ -62,14 +74,14 @@ function createEvent() {
     let tzOffsetTo = "";
 
     //GET DEFAULT/USER TIMEZONE
-    if (tzid == "Etc/UTC") {
+    if (tzid === "Etc/UTC") {
 
         tzOffset = (date.getTimezoneOffset() / -60).toString();
         console.log(tzOffset);
 
         for (let i = 0; i < tzSelect.length; i++) {
             //console.log(tzSelect.options[i].value);
-            if (tzOffset == tzSelect.options[i].value.toString()) {
+            if (tzOffset === tzSelect.options[i].value.toString()) {
                 tzid = tzSelect.options[i].getAttribute('timeZoneId');
 
                 /*
@@ -89,10 +101,9 @@ function createEvent() {
             }
         }
 
-    } /*
-
+    }
+    /*
         else {
-
             tzOffsetFrom = tzSelect.options[tzSelect.selectedIndex].getAttribute('gmtOffset');
 
             if (tzSelect.options[tzSelect.selectedIndex].getAttribute('useDaylightTime') == "1") {
@@ -100,7 +111,8 @@ function createEvent() {
             } else {
                 tzOffsetTo = tzOffsetFrom;
         }
-    } */
+    }
+    */
 
     event = event.concat(`\nTZID:${tzid}`);
 
@@ -123,32 +135,37 @@ function createEvent() {
     console.log(DTStamp);
     event = event.concat(`\nDTSTAMP:${DTStamp}`);
 
+
     //UID
-    const sentBy = document.getElementById('sentBy').value;
+    var sentBy = document.getElementById('sentBy').value;
+    (sentBy === "") ? (sentBy = "none@none") : "";
     const UID = DTStamp + "--" + sentBy.replace(/\s/g, '_');
     console.log(UID);
     event = event.concat(`\nUID:${UID}`);
+
 
     //SUMMARY
     const summary = document.getElementById('summary').value;
     console.log(summary);
     event = event.concat(`\nSUMMARY:${summary}`);
 
+
     //LOCATION
     const location = document.getElementById('location').value;
     console.log(location);
-    event = event.concat(`\nLOCATION:${location}`);
+    (location !== "") ? event = event.concat(`\nLOCATION:${location}`) : "";
 
-    //SENT-BY
+
+    //SENT-BY (declaration under UID)
     //const sentBy = document.getElementById('sentBy').value;
     console.log(sentBy);
-    event = event.concat(`\nSENT-BY:${sentBy}`);
+    (sentBy !== "none@none") ? event = event.concat(`\nSENT-BY:${sentBy}`) : "";
 
     //RSVP
     var rsvpVar = document.getElementsByName('rsvp');
     for(i = 0; i < rsvpVar.length; i++) {
-      if(rsvpVar[i].checked)
-        var rsvpVal = rsvpVar[i].value;
+        if(rsvpVar[i].checked)
+            var rsvpVal = rsvpVar[i].value;
     }
     event = event.concat('\nRSVP:' + rsvpVal);
 
@@ -161,6 +178,7 @@ function createEvent() {
     const DTStart = startDate + "T" + startTime + "00";
     event = event.concat(`\nDTSTART:${DTStart}`);
 
+
     //DTEND
     const endDate = document.getElementById('endDate').value.replace(/-/g,'');
     const endTime = document.getElementById('endTime').value.replace(':','');
@@ -171,22 +189,69 @@ function createEvent() {
     event = event.concat(`\nDTEND:${DTEnd}`);
 
 
+    //RRULE
+    var rrule = "\nRRULE:";
+    var recurrence = document.getElementsByName('recurrence');
+    var interval = document.getElementsByName('interval');
+    var untilDate = document.getElementById('u_repeat').value.replace(/-/g,'');
+    console.log(recurrence);
+    console.log(interval);
+    console.log(untilDate);
+
+    if(!recurrence[0].checked) {
+        for (let i = 1; i < recurrence.length; i++) {
+            if (recurrence[i].checked) {
+                rrule = rrule.concat(`FREQ=${recurrence[i].value};`);
+            }
+        }
+        if (interval) {
+            rrule = rrule.concat(`INTERVAL=${interval[0].value};`);
+        }
+        if (untilDate) {
+            rrule = rrule.concat(`UNTIL=${untilDate}T235900`);
+        }
+        event = event.concat(rrule)
+    }
+
+
     //PRIORITY
-    var prioElement = document.getElementsByName('radio'); // fetches radio buttons by name
-    for(i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
-      if(prioElement[i].checked)
-        var priority = prioElement[i].value;
+    var prioElement = document.getElementsByName('priority'); // fetches radio buttons by name
+    for(let i = 0; i < prioElement.length; i++) {  // fetches value if radio button selected
+        if(prioElement[i].checked)
+            var priority = prioElement[i].value;
     }
     event = event.concat('\nPRIORITY:' + priority);
 
 
     //CLASSIFICATION
     var classif = document.getElementsByName('classification');
-    for(i = 0; i < classif.length; i++) {
-      if(classif[i].checked)
-        var classVal = classif[i].value;
+    for(let i = 0; i < classif.length; i++) {
+        if(classif[i].checked)
+            var classVal = classif[i].value;
     }
     event = event.concat('\nCLASS:' + classVal);
+
+
+    //RESOURCES
+    var resources = "\nRESOURCES:";
+    var res = "";
+    var resBool = 0;
+    var resData = document.getElementsByName('resources');
+
+    for (let i = 0; i < resData.length; i++) {
+        if(resData[i].checked) {
+            resBool = 1;
+            res = res.concat(`${resData[i].value},`);
+        }
+    }
+
+    res = res.slice(0,-1);
+    resources = resources.concat(res);
+    console.log(resources);
+
+    if(resBool == 1) {
+        event = event.concat(resources);
+    }
 
 
     //EVENT END
@@ -207,5 +272,5 @@ function createFile(data) {
     // saveAs(blob, "event.ics");
     saveAs(blob, `${document.getElementById('summary').value}.ics`);
     // saveAs(blob, document.getElementById('summary').value.ics);
-  
+
 }

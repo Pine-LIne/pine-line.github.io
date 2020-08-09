@@ -2,38 +2,63 @@
 <!DOCTYTPE html>
 <html lan="eng">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Team Pine Line!</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-        <link rel="stylesheet" href="style.css">
-        <script xmlns="http://www.w3.org/1999/xhtml" async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
-        <script src="script.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Team Pine Line!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script xmlns="http://www.w3.org/1999/xhtml" async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/5ed507ef8aa53d8ecfea96d96bc7214cd2476fd2/FileSaver.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+    </style>
 
-    <body>
+</head>
 
-    <div class="ui container" >
-        <h1 class="ui header">GO TEAM PINE LINE!</h1>
+<body>
 
-        <form class="ui form" onsubmit="return false">
+<div class="gradient-background">
+    <div class="ui container mainFont">
+        <br/>
+        <img src="cal-logo-gradient1.png" width = "700">
+        <br/>
+        <h1 class="ui header mainFont">INSTRUCTIONS:</h1>
+        <p>Creating and generating a calendar (*.ics) event file using our web app is easy to do. Simply follow the
+            written instructions here, or watch the video to get started! <br>
+        </p>
+        <ul class="a mainFont">
+            <li>Step 1: Fill out all the fields and select all the drop down menus and radio buttons below.</li>
+            <li>Step 2: Click the "Generate Calendar Event" button.
+                <ul>
+                    <li>A generated *.ics file will download to your downloads folder.</li>
+                    <li>The file will be named after your event name. For example, if your event is named Party, the *.ics file will be named Party.ics</li>
+                </ul>
+            </li>
+            <li>Step 3: Open the newly generated *.ics with the calendar app of your choice (Google Calenar, Microsoft Outlook, iCal)
+        </ul>
+        <!--      <div class="ui divider white "></div>-->
+        <br><hr><br>
 
-            <div class="eight wide field">
-                <label>Event Title:</label>
-                <input type="text" placeholder="Add title" id="summary">
+        <!--        <h1 class="ui header">GO TEAM PINE LINE!</h1>-->
+
+        <form class="ui form mainFont" onsubmit="return false">
+
+            <div class="eight wide field mainFont">
+                <label>EVENT TITLE:</label>
+                <input type="text" placeholder="Add title" id="summary" required>
             </div>
 
-            <div class="eight wide field">
-                <label>Location:</label>
+            <div class="eight wide field mainFont">
+                <label>LOCATION:</label>
                 <input type="text" placeholder="Add location" id="location">
             </div>
 
-            <div class="fields">
+            <div class="fields mainFont">
 
                 <div class="field">
-                    <label>Sent by:</label>
+                    <label>SENT BY:</label>
                     <input type="text" placeholder="Add event creator" id="sentBy">
                 </div>
 
@@ -48,47 +73,103 @@
                         <label>No</label>
                     </div>
                 </div>
+            </div>
 
-<!--              <div class="field">-->
-<!--                <label>All Day?</label>-->
-<!--                <div class="ui checkbox">-->
-<!--                  <input type="checkbox" id="allDay">-->
-<!--                  <label>Yes</label>-->
-<!--                </div>-->
-<!--                <div class="ui checkbox">-->
-<!--                  <input type="checkbox" id="notAllDay">-->
-<!--                  <label>No</label>-->
-<!--                </div>-->
-<!--              </div>-->
+            <div class="fields mainFont">
+                <div class="two wide field">
+                    <label>START DATE:</label>
+                </div>
+                <div class="four wide field mainFont">
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="two wide field mainFont">
+                    <input type="time" id="startTime" required>
+                </div>
+            </div>
+
+            <div class="fields">
+                <div class="two wide field mainFont">
+                    <label>END DATE:</label>
+                </div>
+                <div class="four wide field mainFont">
+                    <input type="date" id="endDate" required>
+                </div>
+                <div class="two wide field mainFont">
+                    <input type="time" id="endTime" required>
+                </div>
+            </div>
+
+            <br><hr><br>
+
+            <div class="ui container">
+
+                <div class="ui form">
+                    <div class="inline fields mainFont">
+                        <div class="two wide field">
+                            <label>REPEAT?</label>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="" checked="checked" id="n_recur">
+                                <label>Never</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="DAILY" id="d_recur">
+                                <label>Every Day</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="WEEKLY" id="w_recur">
+                                <label>Every Week</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="MONTHLY" id="m_recur">
+                                <label>Every Month</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="recurrence" value="YEARLY" id="y_recur">
+                                <label>Every Year</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui form">
+                    <div class="inline fields mainFont">
+                        <div class="two wide field">
+                            <label>EVERY OTHER?</label>
+                        </div>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="interval" value="2" id="i_repeat">
+                                <label>Yes</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="fields">
+                    <div class="two wide field mainFont">
+                        <label>UNTIL:</label>
+                    </div>
+                    <div class="four wide field mainFont">
+                        <input type="date" name="untilDate" id="u_repeat">
+                    </div>
+                </div>
 
             </div>
-                <div class="fields">
-                    <div class="two wide field">
-                        Start Date:
-                    </div>
-                    <div class="four wide field">
-                        <input type="date" id="startDate">
-                    </div>
-                    <div class="two wide field">
-                        <input type="time" id="startTime">
-                    </div>
-                </div>
-
-                <div class="fields">
-                    <div class="two wide field">
-                        End Date:
-                    </div>
-                    <div class="four wide field">
-                        <input type="date" id="endDate">
-                    </div>
-                    <div class="two wide field">
-                        <input type="time" id="endTime">
-                    </div>
-                </div>
 
 
-            <div class="eight wide field">
-                <label>Timezone: (currently, only the user's default timezone is available)</label>
+            <div class="eight wide field mainFont">
+                <label>TIMEZONE: (currently, only the user's default timezone is available)</label>
                 <select id="timezones">
                     <option timeZoneID="Etc/UTC" gmtOffset="" useDaylightTime="" value="0">Use your current timezone, or click here to change it.</option>
                     <option timeZoneID="Etc/GMT+12" gmtOffset="-1200" useDaylightTime="0" value="-12">(GMT-12:00) International Date Line West</option>
@@ -178,76 +259,177 @@
             </div>
 
 
-          <div class="ui form">
-            <div class="inline fields">
-              <label>Priority</label>
-              <div class="field">
-                <!-- High Priority value 1 -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="1" checked="checked" id="priorityhigh">
-                  <label>High</label>
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>PRIORITY</label>
+                    </div>
+                    <div class="field">
+                        <!-- Low Priority value 0 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="0" checked="checked" id="prioritynone">
+                            <label>None</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Low Priority value 9 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="9" id="prioritylow">
+                            <label>Low</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Medium Priority value 5 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="5" id="prioritymed">
+                            <label>Medium</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- High Priority value 1 -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="priority" value="1" id="priorityhigh">
+                            <label>High</label>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="field">
-                <!-- Medium Priority value 2 -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="5" id="prioritymed">
-                  <label>Medium</label>
-                </div>
-              </div>
-              <div class="field">
-                <!-- Low Priority value 3 -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="radio" value="9" id="prioritylow">
-                  <label>Low</label>
-                </div>
-              </div>
             </div>
-          </div>
 
-<!--        <div class="two wide field">-->
-<!--          <label> Classification </label>-->
-<!--          <select id="classification">-->
-<!--            <option value="1">Public</option>-->
-<!--            <option value="2">Private</option>-->
-<!--            <<option value="3">Confidential</option>-->
-<!--          </select>-->
-<!--        </div>-->
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>CLASSIFICATION</label>
+                    </div>
 
-          <div class="ui form">
-            <div class="inline fields" >
-              <label>Classification</label>
-              <div class="field">
-                <!-- Public -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="classification" value="PUBLIC" checked="checked" id="classpub">
-                  <label>Public</label>
+                    <div class="field">
+                        <!-- Public -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="PUBLIC" checked="checked" id="classpub">
+                            <label>Public</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Private -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="PRIVATE" id="classpriv">
+                            <label>Private</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <!-- Confidential -->
+                        <div class="ui radio checkbox">
+                            <input type="radio" name="classification" value="CONFIDENTIAL" id="classconf">
+                            <label>Confidential</label>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="field">
-                <!-- Private -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="classification" value="PRIVATE" id="classpriv">
-                  <label>Private</label>
-                </div>
-              </div>
-              <div class="field">
-                <!-- Confidential -->
-                <div class="ui radio checkbox">
-                  <input type="radio" name="classification" value="CONFIDENTIAL" id="classconf">
-                  <label>Confidential</label>
-                </div>
-              </div>
             </div>
-          </div>
 
-          <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>
+
+            <!-- RESOURCES --><br>
+            <div class="ui form">
+                <div class="inline fields mainFont">
+                    <div class="two wide field">
+                        <label>RESOURCES</label>
+                    </div>
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="CATERING">
+                                <label>Catering</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="CHAIRS">
+                                <label>Chairs</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="COMPUTER PROJECTOR">
+                                <label>Computer Projector</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="EASEL">
+                                <label>Easel</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="OVERHEAD PROJECTOR">
+                                <label>Overhead Projector</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="SPEAKER PHONE">
+                                <label>Speaker Phone</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="TABLE">
+                                <label>Table</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="TV">
+                                <label>TV</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VCR">
+                                <label>VCR</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VIDEO PHONE">
+                                <label>Video Phone</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="resources" value="VEHICLE">
+                                <label>Vehicle</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
+            <button class="button myButton" type="submit" id="submit" onClick="submitForm()">
+                <i class="calendar icon"></i>
+                GENERATE CALENDAR EVENT
+            </button>
+
+            <!--    </form>-->
+            <!--        <button class="ui button" type="submit" id="submit" onClick="submitForm()">Generate iCal Event</button>-->
+
 
         </form>
-
     </div>
-
-
-    </body>
+</div>
+</body>
 
 </html>
