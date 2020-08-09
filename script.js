@@ -86,6 +86,7 @@ function createEvent() {
             }
             else {
                 tzid = "Etc/UTC";
+            }
         }
 
     } /*
