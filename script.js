@@ -51,7 +51,8 @@ function createEvent() {
     let event = "BEGIN:VCALENDAR" +
         "\nVERSION:2.0" +
         "\nPRODID:Team-Pine-Line" +
-        "\nCALSCALE:GREGORIAN";
+        "\nCALSCALE:GREGORIAN" +
+        "\nBEGIN:VEVENT";
 
 
 
@@ -125,11 +126,7 @@ function createEvent() {
     event = event.concat("\nEND:STANDARD");
     event = event.concat("\nEND:VTIMEZONE");
     */
-
-    //EVENT START
-    event = event.concat("\nBEGIN:VEVENT");
-
-
+    
     //DTSTAMP
     const DTStamp = createDTStamp(date);
     console.log(DTStamp);
@@ -154,6 +151,7 @@ function createEvent() {
     const location = document.getElementById('location').value;
     console.log(location);
     (location !== "") ? event = event.concat(`\nLOCATION:${location}`) : "";
+    (location !== "") ? event = event.concat(`\nURL:${link(location)}`) : "";
 
 
     //SENT-BY (declaration under UID)
@@ -264,6 +262,12 @@ function createEvent() {
     return event;
 }
 
+function link(location){
+    let url="https://www.google.com/maps/search/?api=1&query=";//link of map search
+    let encodelocation = encodeURI(location);//encode the location
+    let final=url+encodelocation;//combine encoded location and link
+    return final;//return the hyperlink
+}
 
 function createFile(data) {
 
