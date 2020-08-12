@@ -25,6 +25,7 @@
     <!-- Google Maps scripts. -->
     <script src="script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZPe2_Af-2qj6AkEeM6JzO9R_5cSfsBs&callback=createMap&libraries=places" async defer></script>
+    <!--NEED TO TAKE OUT AUTH KEY!!!-->
 
 </head>
 
@@ -68,16 +69,10 @@
             </div>
 
 
-
+<!--GEOLOCATION: Google Maps API Tutorial - https://github.com/BryceStPierre/google-maps-api-tutorial-->
             <div class="eight wide field mainFont">
                 <label>LOCATION:</label>
 <!--                <input type="text" placeholder="Add location" id="location">-->
-<!--              <div class="container-fluid">-->
-<!--                <div class="row">-->
-<!--                  <div class="col">-->
-<!--                    <h1 class="display-4">My Map</h1>-->
-<!--                  </div>-->
-<!--                </div>-->
                 <div class="row mb-2">
                   <div class="col">
 <!--                    <p>Location</p>-->
@@ -90,8 +85,8 @@
                     <div id="map"></div>
                   </div>
                 </div>
-<!--              </div>-->
             </div>
+
 
             <div class="fields mainFont">
 
@@ -137,31 +132,33 @@
                 </div>
             </div>
 
-            <!-- GEOLOCATION -->
-            <div class="eight wide field mainFont">
-            <br/>
-            <p style="color:black;">CLICK THE BUTTON BELOW TO GET YOUR GEOGRAPHIC LOCATION.</p>
-            <button class ="button myButton2" onclick="getLocation()">
-              <i class="map marker alternate icon"></i>
-              GENERATE GEOLOCATION COORDINATES
-            </button>
-            <p id="geoLoc"></p>
-            <script>
-             var x = document.getElementById("geoLoc");
-              function getLocation() {
-               if (navigator.geolocation) {
-                 navigator.geolocation.getCurrentPosition(showPosition);
-               } else {
-                  x.innerHTML = "Geolocation is not supported by this browser.";
-                }
-              }
 
-              function showPosition(position) {
-                x.innerHTML = "<br>Latitude: " + position.coords.latitude +
-                    ";  Longitude: " + position.coords.longitude;
-              }
-            </script>
-            </div>
+<!--GEOLOCATION: W3 schools method -->
+<!--            <div class="eight wide field mainFont">-->
+<!--            <br/>-->
+<!--            <p style="color:black;">CLICK THE BUTTON BELOW TO GET YOUR GEOGRAPHIC LOCATION.</p>-->
+<!--            <button class ="button myButton2" onclick="getLocation()">-->
+<!--              <i class="map marker alternate icon"></i>-->
+<!--              GENERATE GEOLOCATION COORDINATES-->
+<!--            </button>-->
+<!--            <p id="geoLoc"></p>-->
+<!--            <script>-->
+<!--             var x = document.getElementById("geoLoc");-->
+<!--              function getLocation() {-->
+<!--               if (navigator.geolocation) {-->
+<!--                 navigator.geolocation.getCurrentPosition(showPosition);-->
+<!--               } else {-->
+<!--                  x.innerHTML = "Geolocation is not supported by this browser.";-->
+<!--                }-->
+<!--              }-->
+
+<!--              function showPosition(position) {-->
+<!--                x.innerHTML = "<br>Latitude: " + position.coords.latitude +-->
+<!--                    ";  Longitude: " + position.coords.longitude;-->
+<!--              }-->
+<!--            </script>-->
+<!--            </div>-->
+
 
             <br><hr><br>
 
